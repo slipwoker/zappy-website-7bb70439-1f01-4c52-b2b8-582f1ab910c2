@@ -1,57 +1,47 @@
-# OFFSCRIPT EVENTS — Generative Engine Optimization Map
-
-> A אירועים ותכנון business.
+# Business — Generative Engine Optimization Map
 
 ---
 
 ## Pages
 
 ### בית
-https://offscript-events-1.zappy5.app
+https://offscript-events.com
 גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS.
 
 ### שירותים
-https://offscript-events-1.zappy5.app/services
+https://offscript-events.com/services
 גלו את מגוון השירותים שלנו: הדמיה ויזואלית לאירועים, חיבור לספקים מובילים, לוקיישנים לאירועים ותכנון מקצועי.
 
 ### אודות
-https://offscript-events-1.zappy5.app/about
+https://offscript-events.com/about
 גלו את הסיפור מאחורי פלטפורמה לתכנון אירועים בישראל המובילה. החזון שלנו, הערכים והטכנולוגיה שמניעה אותנו.
 
 ### צור קשר
-https://offscript-events-1.zappy5.app/contact
+https://offscript-events.com/contact
 צרו קשר עם OFFSCRIPT EVENTS והתחילו לתכנן את האירוע המושלם שלכם עם פלטפורמה לתכנון אירועים בישראל המובילה.
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://offscript-events-1.zappy5.app/privacy
+https://offscript-events.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://offscript-events-1.zappy5.app/terms
+https://offscript-events.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://offscript-events-1.zappy5.app/accessibility
+https://offscript-events.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About OFFSCRIPT EVENTS
-OFFSCRIPT EVENTS is a business in the אירועים ותכנון industry.
-
-## Target Audience
-אנשים המתכננים אירועים
-
-## Industry
-אירועים ותכנון
-
+## About Business
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://offscript-events-1.zappy5.app/sitemap.xml
-- **Robots.txt**: https://offscript-events-1.zappy5.app/robots.txt
+- **Sitemap**: https://offscript-events.com/sitemap.xml
+- **Robots.txt**: https://offscript-events.com/robots.txt
