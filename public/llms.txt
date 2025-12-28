@@ -1,47 +1,57 @@
-# Business — Generative Engine Optimization Map
+# OFFSCRIPT EVENTS — Generative Engine Optimization Map
+
+> A אירועים ותכנון business.
 
 ---
 
 ## Pages
 
 ### בית
-https://example.com
+https://offscript-events-1.zappy5.app
 גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS.
 
 ### שירותים
-https://example.com/services
+https://offscript-events-1.zappy5.app/services
 גלו את מגוון השירותים שלנו: הדמיה ויזואלית לאירועים, חיבור לספקים מובילים, לוקיישנים לאירועים ותכנון מקצועי.
 
 ### אודות
-https://example.com/about
+https://offscript-events-1.zappy5.app/about
 גלו את הסיפור מאחורי פלטפורמה לתכנון אירועים בישראל המובילה. החזון שלנו, הערכים והטכנולוגיה שמניעה אותנו.
 
 ### צור קשר
-https://example.com/contact
+https://offscript-events-1.zappy5.app/contact
 צרו קשר עם OFFSCRIPT EVENTS והתחילו לתכנן את האירוע המושלם שלכם עם פלטפורמה לתכנון אירועים בישראל המובילה.
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://example.com/privacy
+https://offscript-events-1.zappy5.app/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://example.com/terms
+https://offscript-events-1.zappy5.app/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://example.com/accessibility
+https://offscript-events-1.zappy5.app/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About OFFSCRIPT EVENTS
+OFFSCRIPT EVENTS is a business in the אירועים ותכנון industry.
+
+## Target Audience
+אנשים המתכננים אירועים
+
+## Industry
+אירועים ותכנון
+
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://example.com/sitemap.xml
-- **Robots.txt**: https://example.com/robots.txt
+- **Sitemap**: https://offscript-events-1.zappy5.app/sitemap.xml
+- **Robots.txt**: https://offscript-events-1.zappy5.app/robots.txt
