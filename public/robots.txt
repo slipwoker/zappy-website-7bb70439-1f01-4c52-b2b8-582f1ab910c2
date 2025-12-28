@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://offscript-events-7bb70439.zappy5.app/sitemap.xml
