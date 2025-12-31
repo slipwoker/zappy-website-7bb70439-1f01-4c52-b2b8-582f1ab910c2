@@ -7,8 +7,12 @@
 /accessibility  /accessibility.html  200
 /terms  /terms.html  200
 /concept-events  /concept-events.html  200
-/menu-group-1766946580153  /menu-group-1766946580153.html  200
 /contact  /contact.html  200
+/culinary-menu  /culinary-menu.html  200
+/blog  /blog.html  200
+/blog/visual-simulation  /blog/visual-simulation.html  200
+/blog/planning-platform  /blog/planning-platform.html  200
+/blog/location-tips  /blog/location-tips.html  200
 
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301
