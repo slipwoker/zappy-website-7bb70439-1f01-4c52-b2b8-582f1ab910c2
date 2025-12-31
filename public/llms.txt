@@ -1,73 +1,83 @@
-# Business — Generative Engine Optimization Map
+# OFFSCRIPT EVENTS — Generative Engine Optimization Map
+
+> A אירועים ותכנון business.
 
 ---
 
 ## Pages
 
 ### הפלטפורמה המובילה לתכנון אירועים בישראל — OFFSCRIPT EVENTS
-https://offscript-events.com
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com
 גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS.
 
 ### שירותי הדמיה ויזואלית לאירועים מקצועיים — OFFSCRIPT EVENTS
-https://offscript-events.com/services
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/services
 גלו את מגוון השירותים שלנו: הדמיה ויזואלית לאירועים, חיבור לספקים מובילים, לוקיישנים לאירועים ותכנון מקצועי.
 
 ### הסיפור שלנו - חדשנות בתכנון אירועים — OFFSCRIPT EVENTS
-https://offscript-events.com/about
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/about
 גלו את הסיפור מאחורי פלטפורמה לתכנון אירועים בישראל המובילה. החזון שלנו, הערכים והטכנולוגיה שמניעה אותנו.
 
 ### Page
-https://offscript-events.com/concept-events
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/concept-events
 
 ### צרו קשר - התחילו לתכנן את האירוע המושלם — OFFSCRIPT EVENTS
-https://offscript-events.com/contact
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/contact
 צרו קשר עם OFFSCRIPT EVENTS והתחילו לתכנן את האירוע המושלם שלכם עם פלטפורמה לתכנון אירועים בישראל המובילה.
 
 ### תפריט קולינרי לאירועים - OFFSCRIPT EVENTS
-https://offscript-events.com/culinary-menu
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/culinary-menu
 גלו את התפריט הקולינרי העשיר שלנו לאירועים. מנות שף מוקפדות, חומרי גלם טריים והגשה מעוררת השראה כחלק מהפלטפורמה לתכנון אירועים בישראל.
 
 ### מגזין האירועים וההשראה - OFFSCRIPT
-https://offscript-events.com/blog
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/blog
 הבלוג של OFFSCRIPT: מאמרים, טיפים והשראה לתכנון אירועים, הדמיה ויזואלית ועיצוב חוויות בלתי נשכחות.
 
 ### הדמיה ויזואלית
-https://offscript-events.com/blog/visual-simulation
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/blog/visual-simulation
 גלו כיצד הדמיה ויזואלית לאירועים חוסכת כסף, מונעת טעויות ומשדרגת את חווית הלקוח בתהליך התכנון.
 
 ### תכנון חכם
-https://offscript-events.com/blog/planning-platform
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/blog/planning-platform
 איך בוחרים את הכלי הנכון לניהול האירוע שלכם? סקירה של היתרונות בשימוש בפלטפורמה דיגיטלית לתכנון אירועים.
 
 ### טיפים ללוקיישן
-https://offscript-events.com/blog/location-tips
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/blog/location-tips
 המדריך השלם לבחירת לוקיישנים לאירועים: נגישות, אווירה, תשתיות וכל מה שחשוב לבדוק לפני שסוגרים מקום.
 
 ### Page
-https://offscript-events.com/locaitions
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/locaitions
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://offscript-events.com/privacy
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://offscript-events.com/terms
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://offscript-events.com/accessibility
+https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About OFFSCRIPT EVENTS
+OFFSCRIPT EVENTS is a business in the אירועים ותכנון industry.
+
+## Target Audience
+אנשים המתכננים אירועים
+
+## Industry
+אירועים ותכנון
+
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://offscript-events.com/sitemap.xml
-- **Robots.txt**: https://offscript-events.com/robots.txt
+- **Sitemap**: https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/sitemap.xml
+- **Robots.txt**: https://zappy-site-7bb70439-1f01-4c52-b2b8.onrender.com/robots.txt
