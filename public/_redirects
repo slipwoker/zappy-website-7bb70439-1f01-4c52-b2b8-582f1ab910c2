@@ -13,6 +13,7 @@
 /blog/visual-simulation  /blog/visual-simulation.html  200
 /blog/planning-platform  /blog/planning-platform.html  200
 /blog/location-tips  /blog/location-tips.html  200
+/locaitions  /locaitions.html  200
 
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301

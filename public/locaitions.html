@@ -1,381 +1,12 @@
-<!DOCTYPE html><html lang="he" dir="rtl"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="home_page_title">מדריך לבחירת פלטפורמה לתכנון אירועים - OFFSCRIPT</title>
-  <meta name="description" content="איך בוחרים את הכלי הנכון לניהול האירוע שלכם? סקירה של היתרונות בשימוש בפלטפורמה דיגיטלית לתכנון אירועים.">
-  <meta name="keywords" content="פלטפורמה לתכנון אירועים בישראל, הדמיה ויזואלית לאירועים, תכנון אירועים עם הדמיה, לוקיישנים לאירועים">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<style>
-/* Zappy Attribution Header Styles */
-.zappy-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0px 4px 19px 0px rgba(0,0,0,0.04);
-  padding: 16px 10px;
-  text-align: center;
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  color: #4a4a4a;
-  line-height: 21px;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 21px;
-  direction: ltr !important;
-  unicode-bidi: isolate;
-}
-
-    .zappy-header p {
-      margin: 0;
-      padding: 0;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 21px;
-      white-space: nowrap;
-      display: inline-block;
-      vertical-align: baseline;
-      margin-bottom: 0 !important;
-      direction: ltr !important;
-    }
-
-.zappy-header .zappy-link {
-  font-weight: 700;
-  color: #4a4a4a;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.zappy-header .zappy-link:hover {
-  opacity: 0.7;
-}</style>
-    <!-- Cookie Consent -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
-    <!-- Mickidum Accessibility Toolbar -->
-    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
-
-          <style id="zappy-cta-mobile-style">
-            /* Hide CTA list item on desktop (tablets and up) */
-            @media (min-width: 769px) {
-              .nav-cta-item-mobile {
-                display: none !important;
-              }
-            }
-            /* Show CTA list item on mobile */
-            @media (max-width: 768px) {
-              .nav-cta-item-mobile {
-                display: list-item !important;
-              }
-            }
-          </style>
-        
-          <style id="zappy-nested-menu-style">
-            /* Desktop only: vertically center nav items */
-            @media (min-width: 769px) {
-              .nav-menu,
-              #navMenu {
-                align-items: center !important;
-              }
-            }
-            
-            /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu > li > .menu-group-title,
-            #navMenu > li > .menu-group-title {
-              display: inline-block !important;
-              padding: 0.5rem 1rem !important;
-              color: var(--nav-color) !important;
-              font-weight: 500 !important;
-              line-height: 1.7 !important;
-              cursor: default !important;
-              user-select: none !important;
-              vertical-align: middle !important;
-              text-decoration: none !important;
-              margin: 0 !important;
-              transition: color 0.3s ease !important;
-            }
-            
-            .nav-menu > li > .menu-group-title:hover,
-            #navMenu > li > .menu-group-title:hover {
-              color: var(--nav-hover-color) !important;
-            }
-            
-            /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover > .sub-menu {
-              opacity: 1 !important;
-              visibility: visible !important;
-              transform: translateY(0) !important;
-              pointer-events: auto !important; /* Enable interaction when hovering */
-            }
-            
-            /* Hide menu items marked as hidden (overrides hover states) */
-            .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover > .sub-menu .zappy-hidden-menu-item {
-              display: none !important;
-              opacity: 0 !important;
-              visibility: hidden !important;
-              pointer-events: none !important;
-            }
-            
-            /* Keep submenu visible when hovering over the submenu itself */
-            .sub-menu:hover {
-              opacity: 1 !important;
-              visibility: visible !important;
-              pointer-events: auto !important;
-            }
-            
-            /* Nested dropdown menu styles - using more specific selectors */
-            .nav-menu .sub-menu,
-            nav .sub-menu,
-            .navbar .sub-menu {
-              display: block !important; /* Ensure submenu is in the DOM */
-              position: absolute !important;
-              top: 100%;
-              left: 0;
-              right: auto;
-              min-width: 200px;
-              background: white;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-              border-radius: 8px;
-              padding: 8px 0;
-              margin-top: 0px; /* Remove gap to prevent hover loss */
-              opacity: 0 !important;
-              visibility: hidden !important;
-              transform: translateY(-10px);
-              transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-              z-index: 1000;
-              list-style: none;
-              pointer-events: none; /* Prevent interaction when hidden */
-            }
-            
-            /* RTL (Hebrew/Arabic) submenu positioning - align to right instead of left */
-            [dir="rtl"] .nav-menu .sub-menu,
-            [dir="rtl"] nav .sub-menu,
-            [dir="rtl"] .navbar .sub-menu,
-            html[lang="he"] .nav-menu .sub-menu,
-            html[lang="he"] nav .sub-menu,
-            html[lang="he"] .navbar .sub-menu,
-            html[lang="ar"] .nav-menu .sub-menu,
-            html[lang="ar"] nav .sub-menu,
-            html[lang="ar"] .navbar .sub-menu {
-              left: auto;
-              right: 0;
-            }
-            
-            /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover > .sub-menu,
-            nav li:hover > .sub-menu,
-            .navbar li:hover > .sub-menu {
-              opacity: 1 !important;
-              visibility: visible !important;
-              transform: translateY(0) !important;
-              pointer-events: auto !important; /* Enable interaction when visible */
-            }
-            
-            /* Parent item must be relatively positioned */
-            .nav-menu li:has(.sub-menu),
-            nav li:has(.sub-menu),
-            .navbar li:has(.sub-menu) {
-              position: relative;
-            }
-            
-            /* Style for submenu items */
-            .sub-menu li {
-              list-style: none;
-              margin: 0;
-              padding: 0;
-            }
-            
-            .sub-menu a,
-            .sub-menu .menu-group-title {
-              display: block !important;
-              padding: 10px 12px !important;
-              color: #333 !important;
-              font-weight: 600 !important;
-              text-decoration: none;
-              transition: background-color 0.2s;
-              white-space: nowrap;
-              cursor: default;
-            }
-            
-            .sub-menu a:hover {
-              background-color: #f5f5f5;
-            }
-            
-            /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu > li > .menu-group-title,
-            #navMenu > li > .menu-group-title {
-              display: inline-block !important;
-              padding: 0.5rem 1rem !important;
-              color: var(--nav-color) !important;
-              font-weight: 500 !important;
-              line-height: 1.7 !important;
-              cursor: default !important;
-              user-select: none !important;
-              vertical-align: middle !important;
-              text-decoration: none !important;
-              margin: 0 !important;
-              transition: color 0.3s ease !important;
-            }
-            
-            .nav-menu > li > .menu-group-title:hover,
-            #navMenu > li > .menu-group-title:hover {
-              color: var(--nav-hover-color) !important;
-              background-color: transparent !important;
-            }
-            
-            /* On mobile, show nested menus as expandable accordion */
-            @media (max-width: 768px) {
-              /* Mobile submenu styling */
-              .nav-menu .sub-menu,
-              nav .sub-menu,
-              .navbar .sub-menu {
-                position: static !important;
-                transform: none !important;
-                box-shadow: none !important;
-                background: transparent !important;
-                margin-top: 0 !important;
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                visibility: hidden;
-                transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
-                padding: 0 !important;
-                border-radius: 0 !important;
-              }
-              
-              /* Expanded state */
-              .sub-menu.mobile-expanded {
-                max-height: 500px !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                padding: 8px 0 8px 16px !important;
-              }
-              
-              /* RTL padding adjustment */
-              [dir="rtl"] .sub-menu.mobile-expanded,
-              html[lang="he"] .sub-menu.mobile-expanded,
-              html[lang="ar"] .sub-menu.mobile-expanded {
-                padding: 8px 16px 8px 0 !important;
-              }
-              
-              /* Disable hover behavior on mobile */
-              .nav-menu li:hover > .sub-menu,
-              nav li:hover > .sub-menu,
-              .navbar li:hover > .sub-menu {
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-              }
-              
-              /* Enable visibility for expanded submenus */
-              .nav-menu li > .sub-menu.mobile-expanded,
-              nav li > .sub-menu.mobile-expanded,
-              .navbar li > .sub-menu.mobile-expanded {
-                opacity: 1 !important;
-                visibility: visible !important;
-                pointer-events: auto !important;
-              }
-              
-              .sub-menu a {
-                padding: 10px 0 !important;
-                display: block !important;
-                font-size: 14px !important;
-              }
-              
-              .sub-menu a:hover {
-                background-color: transparent !important;
-              }
-              
-              /* Parent item wrapper - flex layout for link + toggle */
-              .nav-menu li:has(.sub-menu),
-              nav li:has(.sub-menu),
-              .navbar li:has(.sub-menu) {
-                display: flex !important;
-                flex-wrap: wrap !important;
-                align-items: center !important;
-              }
-              
-              /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) > a,
-              nav li:has(.sub-menu) > a,
-              .navbar li:has(.sub-menu) > a,
-              .nav-menu > li > .menu-group-title,
-              #navMenu > li > .menu-group-title {
-                flex: 1 !important;
-              }
-              
-              /* Toggle arrow button - separate clickable area */
-              .mobile-submenu-toggle {
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                width: 44px !important;
-                height: 44px !important;
-                background: transparent !important;
-                border: none !important;
-                cursor: pointer !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                flex-shrink: 0 !important;
-                -webkit-tap-highlight-color: transparent;
-              }
-              
-              .mobile-submenu-toggle::after {
-                content: '' !important;
-                display: block !important;
-                width: 0 !important;
-                height: 0 !important;
-                border-left: 6px solid transparent !important;
-                border-right: 6px solid transparent !important;
-                border-top: 7px solid currentColor !important;
-                transition: transform 0.3s ease !important;
-              }
-              
-              /* Rotate arrow when expanded */
-              .mobile-submenu-toggle.expanded::after {
-                transform: rotate(180deg) !important;
-              }
-              
-              /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) > .sub-menu,
-              nav li:has(.sub-menu) > .sub-menu,
-              .navbar li:has(.sub-menu) > .sub-menu {
-                flex-basis: 100% !important;
-                width: 100% !important;
-              }
-            }
-            
-            /* Hide toggle button on desktop */
-            @media (min-width: 769px) {
-              .mobile-submenu-toggle {
-                display: none !important;
-              }
-            }
-          </style>
-          
-          <script id="zappy-mobile-menu-script">
-            // Mobile menu toggle for nested submenus (including Menu Groups)
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta content="width=device-width,initial-scale=1" name="viewport"><meta content="index, follow" name="robots"><title>Generated Website</title><meta content="" name="description"><meta content="" name="keywords"><link href="/assets/favicon.ico" rel="icon" type="image/x-icon"><link href="/assets/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16"><link href="/assets/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32"><link href="/assets/favicon-48x48.png" rel="icon" type="image/png" sizes="48x48"><link href="/assets/favicon-192x192.png" rel="icon" type="image/png" sizes="192x192"><link href="/assets/favicon-512x512.png" rel="icon" type="image/png" sizes="512x512"><link href="/assets/apple-touch-icon.png" rel="apple-touch-icon"><script>!function(){"use strict";var t="7bb70439-1f01-4c52-b2b8-582f1ab910c2",e="https://api.zappy5.com/api/analytics/track",a=18e5,n=2592e6,o=!0,i=!0,r=!0;var s=function(){var e="zappy_visitor_"+t,a=null;try{if(a=localStorage.getItem(e)){var o=JSON.parse(a),i=Date.now();if(i-o.created<n)return o.lastSeen=i,localStorage.setItem(e,JSON.stringify(o)),o.id}}catch(t){console.warn("Zappy Analytics: LocalStorage not available")}var r="zv_"+Date.now()+"_"+Math.random().toString(36).substr(2,9);try{localStorage.setItem(e,JSON.stringify({id:r,created:Date.now(),lastSeen:Date.now()}))}catch(t){}return r}(),c=function(){var e="zappy_session_"+t,n=null;try{if(n=sessionStorage.getItem(e)){var o=JSON.parse(n),i=Date.now();if(i-o.timestamp<a)return o.timestamp=i,sessionStorage.setItem(e,JSON.stringify(o)),o.id}}catch(t){console.warn("Zappy Analytics: SessionStorage not available")}var r="zs_"+Date.now()+"_"+Math.random().toString(36).substr(2,9);try{sessionStorage.setItem(e,JSON.stringify({id:r,timestamp:Date.now()}))}catch(t){}return r}();function l(a,n){n=n||{};var o={website_id:t,event_type:a,page_path:window.location.pathname,referrer:document.referrer||"direct",visitor_id:s,session_id:c,metadata:n};if(navigator.sendBeacon){var i=new Blob([JSON.stringify(o)],{type:"application/json"});navigator.sendBeacon(e,i)}else fetch(e,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(o),keepalive:!0}).catch(function(t){console.warn("Zappy Analytics: Failed to track event",t)})}o&&l("pageview",{title:document.title,url:window.location.href}),i&&document.addEventListener("click",function(t){var e=t.target;if("BUTTON"===e.tagName||e.closest("button")){var a="BUTTON"===e.tagName?e:e.closest("button");l("click",{element:"button",text:a.textContent.trim().substring(0,100),id:a.id||null,class:a.className||null})}else if("A"===e.tagName||e.closest("a")){var n="A"===e.tagName?e:e.closest("a");l("navigation",{element:"link",text:n.textContent.trim().substring(0,100),href:n.href,external:n.hostname!==window.location.hostname})}},!0),r&&document.addEventListener("submit",function(t){var e=t.target;l("form_submit",{form_id:e.id||null,form_name:e.name||null,form_action:e.action||null,form_method:e.method||"GET"})},!0);var m=Date.now();window.addEventListener("beforeunload",function(){l("page_unload",{time_on_page:Math.floor((Date.now()-m)/1e3),page_path:window.location.pathname})}),window.zappyAnalytics={track:l,getVisitorId:function(){return s},getSessionId:function(){return c}}}()</script><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" referrerpolicy="no-referrer"/><link href="/styles.css" rel="stylesheet"><style id="zappy-mobile-submenu-styles">@media (max-width:768px){#navMenu .sub-menu,.nav-menu .sub-menu,.navbar .sub-menu,nav .sub-menu{position:static!important;transform:none!important;box-shadow:none!important;background:0 0!important;max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .3s ease,opacity .3s ease;padding:0!important}.sub-menu.mobile-expanded{max-height:500px!important;opacity:1!important;visibility:visible!important;padding:8px 0 8px 16px!important}[dir=rtl] .sub-menu.mobile-expanded,html[lang=he] .sub-menu.mobile-expanded{padding:8px 16px 8px 0!important}#navMenu li:hover>.sub-menu,.nav-menu li:hover>.sub-menu,.navbar li:hover>.sub-menu,nav li:hover>.sub-menu{opacity:0;visibility:hidden}#navMenu li>.sub-menu.mobile-expanded,.nav-menu li>.sub-menu.mobile-expanded,.navbar li>.sub-menu.mobile-expanded,nav li>.sub-menu.mobile-expanded{opacity:1!important;visibility:visible!important;pointer-events:auto!important}#navMenu li:has(.sub-menu),.nav-menu li:has(.sub-menu),.navbar li:has(.sub-menu),nav li:has(.sub-menu){display:flex!important;flex-wrap:wrap!important;align-items:center!important}#navMenu li:has(.sub-menu)>a,.nav-menu li:has(.sub-menu)>a,.navbar li:has(.sub-menu)>a,nav li:has(.sub-menu)>a{flex:1!important}.mobile-submenu-toggle{display:flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;background:0 0!important;border:none!important;cursor:pointer!important}.mobile-submenu-toggle::after{content:''!important;display:block!important;width:0!important;height:0!important;border-left:6px solid transparent!important;border-right:6px solid transparent!important;border-top:7px solid currentColor!important;transition:transform .3s ease!important}.mobile-submenu-toggle.expanded::after{transform:rotate(180deg)!important}#navMenu li:has(.sub-menu)>.sub-menu,.nav-menu li:has(.sub-menu)>.sub-menu,.navbar li:has(.sub-menu)>.sub-menu,nav li:has(.sub-menu)>.sub-menu{flex-basis:100%!important;width:100%!important}.sub-menu a{padding:10px 0!important;display:block!important}#navMenu li:has(.sub-menu)>.menu-group-title,.nav-menu li:has(.sub-menu)>.menu-group-title,.navbar li:has(.sub-menu)>.menu-group-title,nav li:has(.sub-menu)>.menu-group-title{flex:1!important}}li:has(.menu-group-title):hover>.sub-menu{opacity:1!important;visibility:visible!important;transform:translateY(0)!important;pointer-events:auto!important}#navMenu>li>.menu-group-title,.nav-menu>li>.menu-group-title{display:inline-block;padding:.5rem 1rem;cursor:default;user-select:none}@media (min-width:769px){.mobile-submenu-toggle{display:none!important}}</style></head><body><!doctype html><html lang="he" dir="rtl"><head><meta charset="UTF-8"><meta content="width=device-width,initial-scale=1" name="viewport"><title data-i18n="home_page_title">LOCAITIONS</title><meta content="גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS." name="description" data-i18n-content="home_meta_description"><meta content="פלטפורמה לתכנון אירועים בישראל, הדמיה ויזואלית לאירועים, תכנון אירועים עם הדמיה, לוקיישנים לאירועים" name="keywords"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"><link href="assets/favicon.ico" rel="icon" type="image/x-icon"><link href="assets/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16"><link href="assets/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32"><link href="assets/favicon-48x48.png" rel="icon" type="image/png" sizes="48x48"><link href="assets/favicon-192x192.png" rel="icon" type="image/png" sizes="192x192"><link href="assets/favicon-512x512.png" rel="icon" type="image/png" sizes="512x512"><link href="assets/apple-touch-icon.png" rel="apple-touch-icon"><style>.zappy-header{position:fixed;top:0;left:0;width:100%;background:#fff;box-shadow:0 4px 19px 0 rgba(0,0,0,.04);padding:16px 10px;text-align:center;font-family:Nunito,sans-serif;font-size:16px;color:#4a4a4a;line-height:21px;z-index:99999;display:flex;align-items:center;justify-content:center;min-height:21px;direction:ltr!important;unicode-bidi:isolate}.zappy-header p{margin:0;padding:0;font-weight:400;font-size:16px;line-height:21px;white-space:nowrap;display:inline-block;vertical-align:baseline;margin-bottom:0!important;direction:ltr!important}.zappy-header .zappy-link{font-weight:700;color:#4a4a4a;text-decoration:none;transition:opacity .2s}.zappy-header .zappy-link:hover{opacity:.7}</style><link href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script><script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script><style id="zappy-cta-mobile-style">@media (min-width:769px){.nav-cta-item-mobile{display:none!important}}@media (max-width:768px){.nav-cta-item-mobile{display:list-item!important}}</style><style id="zappy-nested-menu-style">@media (min-width:769px){#navMenu,.nav-menu{align-items:center!important}}.zappy-hidden-menu-item{display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important}.sub-menu:hover{opacity:1!important;visibility:visible!important;pointer-events:auto!important}.nav-menu .sub-menu,.navbar .sub-menu,nav .sub-menu{display:block!important;position:absolute!important;top:100%;left:0;right:auto;min-width:200px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.15);border-radius:8px;padding:8px 0;margin-top:0;opacity:0!important;visibility:hidden!important;transform:translateY(-10px);transition:opacity .3s ease,transform .3s ease,visibility .3s;z-index:1000;list-style:none;pointer-events:none}[dir=rtl] .nav-menu .sub-menu,[dir=rtl] .navbar .sub-menu,[dir=rtl] nav .sub-menu,html[lang=ar] .nav-menu .sub-menu,html[lang=ar] .navbar .sub-menu,html[lang=ar] nav .sub-menu,html[lang=he] .nav-menu .sub-menu,html[lang=he] .navbar .sub-menu,html[lang=he] nav .sub-menu{left:auto;right:0}.nav-menu li:has(.sub-menu),.navbar li:has(.sub-menu),nav li:has(.sub-menu){position:relative}.sub-menu li{list-style:none;margin:0;padding:0}.sub-menu .menu-group-title,.sub-menu a{display:block!important;padding:10px 12px!important;color:#333!important;font-weight:600!important;text-decoration:none;transition:background-color .2s;white-space:nowrap;cursor:default}.sub-menu a:hover{background-color:#f5f5f5}@media (max-width:768px){.nav-menu .sub-menu,.navbar .sub-menu,nav .sub-menu{position:static!important;transform:none!important;box-shadow:none!important;background:0 0!important;margin-top:0!important;max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .3s ease,opacity .3s ease,visibility .3s ease,padding .3s ease;padding:0!important;border-radius:0!important}.sub-menu.mobile-expanded{max-height:500px!important;opacity:1!important;visibility:visible!important;padding:8px 0 8px 16px!important}[dir=rtl] .sub-menu.mobile-expanded,html[lang=ar] .sub-menu.mobile-expanded,html[lang=he] .sub-menu.mobile-expanded{padding:8px 16px 8px 0!important}.sub-menu a{padding:10px 0!important;display:block!important;font-size:14px!important}.sub-menu a:hover{background-color:transparent!important}.nav-menu li:has(.sub-menu),.navbar li:has(.sub-menu),nav li:has(.sub-menu){display:flex!important;flex-wrap:wrap!important;align-items:center!important}.mobile-submenu-toggle{display:flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;background:0 0!important;border:none!important;cursor:pointer!important;padding:0!important;margin:0!important;flex-shrink:0!important;-webkit-tap-highlight-color:transparent}.mobile-submenu-toggle::after{content:''!important;display:block!important;width:0!important;height:0!important;border-left:6px solid transparent!important;border-right:6px solid transparent!important;border-top:7px solid currentColor!important;transition:transform .3s ease!important}.mobile-submenu-toggle.expanded::after{transform:rotate(180deg)!important}}@media (min-width:769px){.mobile-submenu-toggle{display:none!important}}</style><script id="zappy-mobile-menu-script">// Mobile menu toggle for nested submenus (including Menu Groups)
             // Uses separate toggle button - link navigates, arrow toggles submenu
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth > 768) {
+                if (window.innerWidth &gt; 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu => {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&gt; btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&gt; {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -398,7 +29,7 @@
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
+                  const parentLink = li.querySelector(':scope &gt; a') || li.querySelector(':scope &gt; .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -458,7 +89,7 @@
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' &amp;&amp; mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -473,520 +104,7 @@
               mobileMenus.forEach(function(menu) {
                 observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
               });
-            })();
-          </script>
-        
-    <!-- Iconify for cross-platform flag icons -->
-    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="מדריך לבחירת פלטפורמה לתכנון אירועים - OFFSCRIPT">
-    <meta property="og:description" content="איך בוחרים את הכלי הנכון לניהול האירוע שלכם? סקירה של היתרונות בשימוש בפלטפורמה דיגיטלית לתכנון אירועים.">
-    <meta property="og:image" content="https://offscript-events.com/assets/page-blog-article-hero-1767181028261-og.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="מדריך לבחירת פלטפורמה לתכנון אירועים - OFFSCRIPT">
-    <meta property="og:locale" content="he_IL">
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="מדריך לבחירת פלטפורמה לתכנון אירועים - OFFSCRIPT">
-    <meta name="twitter:description" content="איך בוחרים את הכלי הנכון לניהול האירוע שלכם? סקירה של היתרונות בשימוש בפלטפורמה דיגיטלית לתכנון אירועים.">
-    <meta name="twitter:image" content="https://offscript-events.com/assets/page-blog-article-hero-1767181028261-og.jpg">
-    <meta name="twitter:image:alt" content="מדריך לבחירת פלטפורמה לתכנון אירועים - OFFSCRIPT"><style id="zappy-ai-page-styles">
-
-
-/* Zappy Base Styles for Edit Mode Compatibility */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
-.section { padding: 4rem 0; position: relative; display: block !important; }
-/* Reset section grid - sections should contain grids, not BE grids */
-section[data-zappy-section] { display: block !important; grid-template-columns: unset !important; }
-/* Grid layouts - consistent styling across all grid types */
-/* Services/Gallery/Portfolio grids - adaptive with lower min-width for more columns */
-/* Note: :not(.zappy-preserve-css-grid) excludes grids that have custom inline styles that should be preserved */
-.services-grid:not(.zappy-preserve-css-grid), .gallery-grid:not(.zappy-preserve-css-grid), .portfolio-grid:not(.zappy-preserve-css-grid), .blog-grid:not(.zappy-preserve-css-grid), .testimonials-grid:not(.zappy-preserve-css-grid) {
-  display: grid !important;
-  gap: 2rem !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)) !important;
-}
-/* Generic grid - slightly larger min-width */
-.grid:not(.zappy-preserve-css-grid) { display: grid !important; gap: 2rem !important; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)) !important; }
-.grid.grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
-.grid.grid-3 { grid-template-columns: repeat(3, 1fr) !important; }
-.grid.grid-4 { grid-template-columns: repeat(4, 1fr) !important; }
-/* Card styling */
-.card, .service-card, .blog-card, .testimonial-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.card:hover, .service-card:hover, .blog-card:hover, .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-.card img, .service-card img, .blog-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-.btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none; }
-.btn-primary { background-color: #c0c0c0; color: white; }
-.btn-primary:hover { filter: brightness(1.1); }
-/* Pricing grid specific */
-.pricing-grid { display: grid !important; gap: 2rem !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; }
-.pricing-card { background: #fff !important; border-radius: 16px !important; padding: 2rem !important; box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: center; }
-.pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important; }
-.pricing-card.featured, .pricing-card.popular { border: 2px solid #c0c0c0 !important; position: relative; }
-.pricing-card .card-header { padding-bottom: 1.5rem; border-bottom: 1px solid #eee; margin-bottom: 1.5rem; }
-.pricing-card .card-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #1f2937; }
-.pricing-card .price { font-size: 2.5rem; font-weight: 700; color: #1f2937; }
-.pricing-card .price .period { font-size: 1rem; font-weight: 400; color: #6b7280; }
-.pricing-card .plan-desc, .pricing-card .description { color: #6b7280; font-size: 0.95rem; margin-top: 0.5rem; }
-.pricing-card .card-body, .pricing-card .card-footer { text-align: center; }
-.pricing-card .features-list { list-style: none !important; padding: 0 !important; margin: 0 0 1.5rem 0 !important; text-align: right; }
-.pricing-card .features-list li { padding: 0.5rem 0; }
-.pricing-card .features-list li.disabled { color: #9ca3af; }
-.pricing-card .popular-badge { background: #c0c0c0; color: white; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; text-align: center; }
-.pricing-card .btn { display: block; width: 100%; text-align: center; margin-top: 1rem; }
-.btn-outline { background: transparent !important; border: 2px solid #c0c0c0 !important; color: #c0c0c0 !important; }
-.btn-outline:hover { background: #c0c0c0 !important; color: white !important; }
-.card { background: #fff !important; border-radius: 12px !important; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important; }
-@media (max-width: 768px) {
-  .container { padding: 0 1rem; }
-  .section { padding: 2.5rem 0; }
-  .grid:not(.zappy-preserve-css-grid), .services-grid:not(.zappy-preserve-css-grid), .gallery-grid:not(.zappy-preserve-css-grid), .portfolio-grid:not(.zappy-preserve-css-grid), .blog-grid:not(.zappy-preserve-css-grid), .testimonials-grid:not(.zappy-preserve-css-grid) { 
-    gap: 1.5rem; 
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important; 
-  }
-  .grid.grid-2:not(.zappy-preserve-css-grid), .grid.grid-3:not(.zappy-preserve-css-grid), .grid.grid-4:not(.zappy-preserve-css-grid) { grid-template-columns: 1fr; }
-  .pricing-grid:not(.zappy-preserve-css-grid) { grid-template-columns: 1fr; }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .grid.grid-3:not(.zappy-preserve-css-grid), .grid.grid-4:not(.zappy-preserve-css-grid) { grid-template-columns: repeat(2, 1fr); }
-  .services-grid:not(.zappy-preserve-css-grid), .gallery-grid:not(.zappy-preserve-css-grid), .portfolio-grid:not(.zappy-preserve-css-grid), .blog-grid:not(.zappy-preserve-css-grid) { 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important; 
-  }
-}
-/* Hero container fixes - contain absolute images */
-[class*="hero"], [id*="hero"] { position: relative !important; overflow: hidden !important; }
-[class*="hero"] > .container, [id*="hero"] > .container { position: relative; z-index: 2; }
-.hero-image-wrapper, [class*="image-wrapper"] { position: relative !important; overflow: hidden !important; }
-/* Prevent hero positioning on non-hero page images */
-img[data-no-hero-position] { position: static !important; }
-/* Reset hero text colors for AI-generated pages - remove !important color overrides */
-.ai-generated-page .hero-content h1,
-.ai-generated-page .hero-content h2,
-.ai-generated-page .hero-content h3,
-.ai-generated-page .hero-content p,
-.ai-generated-page [class*="hero"] h1,
-.ai-generated-page [class*="hero"] h2,
-.ai-generated-page [class*="hero"] h3,
-.ai-generated-page [class*="hero"] p { color: unset !important; }
-/* End Zappy Base Styles */
-
-</style><style>
-      /* Dropdown sub-menu styles (AI-generated page) */
-      .nav-menu li:has(.sub-menu),
-      nav li:has(.sub-menu),
-      .navbar li:has(.sub-menu) {
-        position: relative;
-      }
-      .nav-menu .sub-menu,
-      nav .sub-menu,
-      .navbar .sub-menu {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 220px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        padding: 8px 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
-        z-index: 1000;
-        list-style: none;
-        pointer-events: none;
-      }
-      .nav-menu li:hover > .sub-menu,
-      nav li:hover > .sub-menu,
-      .navbar li:hover > .sub-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-      .sub-menu li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      .sub-menu a {
-        display: block;
-        padding: 10px 16px;
-        color: #333;
-        font-weight: 500;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: background-color 0.2s;
-      }
-      .sub-menu a:hover {
-        background-color: #f5f5f5;
-      }
-      /* RTL dropdown positioning */
-      [dir="rtl"] .sub-menu,
-      html[lang="he"] .sub-menu,
-      html[lang="ar"] .sub-menu {
-        left: auto;
-        right: 0;
-      }
-    </style><!-- Zappy Analytics -->
-<script>
-(function() {
-  'use strict';
-  
-  // Configuration
-  var config = {
-    websiteId: '7bb70439-1f01-4c52-b2b8-582f1ab910c2',
-    apiUrl: 'https://api.zappy5.com/api/analytics/track',
-    sessionDuration: 30 * 60 * 1000, // 30 minutes
-    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
-    trackPageViews: true,
-    trackClicks: true,
-    trackFormSubmissions: true
-  };
-  
-  // Generate or retrieve persistent visitor ID (30 days)
-  function getVisitorId() {
-    var visitorKey = 'zappy_visitor_' + config.websiteId;
-    var visitor = null;
-    
-    try {
-      visitor = localStorage.getItem(visitorKey);
-      if (visitor) {
-        var visitorData = JSON.parse(visitor);
-        var now = Date.now();
-        
-        // Check if visitor ID is still valid (30 days)
-        if (now - visitorData.created < config.visitorDuration) {
-          // Update last seen timestamp
-          visitorData.lastSeen = now;
-          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
-          return visitorData.id;
-        }
-      }
-    } catch (e) {
-      console.warn('Zappy Analytics: LocalStorage not available');
-    }
-    
-    // Generate new visitor ID
-    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    
-    try {
-      localStorage.setItem(visitorKey, JSON.stringify({
-        id: newVisitorId,
-        created: Date.now(),
-        lastSeen: Date.now()
-      }));
-    } catch (e) {
-      // Continue without local storage
-    }
-    
-    return newVisitorId;
-  }
-  
-  // Generate or retrieve session ID (30 minutes)
-  function getSessionId() {
-    var sessionKey = 'zappy_session_' + config.websiteId;
-    var session = null;
-    
-    try {
-      session = sessionStorage.getItem(sessionKey);
-      if (session) {
-        var sessionData = JSON.parse(session);
-        var now = Date.now();
-        
-        // Check if session is still valid
-        if (now - sessionData.timestamp < config.sessionDuration) {
-          // Update timestamp
-          sessionData.timestamp = now;
-          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
-          return sessionData.id;
-        }
-      }
-    } catch (e) {
-      console.warn('Zappy Analytics: SessionStorage not available');
-    }
-    
-    // Generate new session ID
-    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    
-    try {
-      sessionStorage.setItem(sessionKey, JSON.stringify({
-        id: newSessionId,
-        timestamp: Date.now()
-      }));
-    } catch (e) {
-      // Continue without session storage
-    }
-    
-    return newSessionId;
-  }
-  
-  var visitorId = getVisitorId();
-  var sessionId = getSessionId();
-  
-  // Track an event
-  function trackEvent(eventType, data) {
-    data = data || {};
-    
-    var eventData = {
-      website_id: config.websiteId,
-      event_type: eventType,
-      page_path: window.location.pathname,
-      referrer: document.referrer || 'direct',
-      visitor_id: visitorId,
-      session_id: sessionId,
-      metadata: data
-    };
-    
-    // Use sendBeacon if available (better for page unload events)
-    if (navigator.sendBeacon) {
-      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
-      navigator.sendBeacon(config.apiUrl, blob);
-    } else {
-      // Fallback to fetch
-      fetch(config.apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(eventData),
-        keepalive: true
-      }).catch(function(error) {
-        console.warn('Zappy Analytics: Failed to track event', error);
-      });
-    }
-  }
-  
-  // Track page view
-  if (config.trackPageViews) {
-    trackEvent('pageview', {
-      title: document.title,
-      url: window.location.href
-    });
-  }
-  
-  // Track clicks on important elements
-  if (config.trackClicks) {
-    document.addEventListener('click', function(e) {
-      var target = e.target;
-      
-      // Track button clicks (counted as actions)
-      if (target.tagName === 'BUTTON' || target.closest('button')) {
-        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
-        trackEvent('click', {
-          element: 'button',
-          text: button.textContent.trim().substring(0, 100),
-          id: button.id || null,
-          class: button.className || null
-        });
-      }
-      
-      // Track link clicks (navigation - not counted as actions)
-      else if (target.tagName === 'A' || target.closest('a')) {
-        var link = target.tagName === 'A' ? target : target.closest('a');
-        trackEvent('navigation', {
-          element: 'link',
-          text: link.textContent.trim().substring(0, 100),
-          href: link.href,
-          external: link.hostname !== window.location.hostname
-        });
-      }
-    }, true);
-  }
-  
-  // Track form submissions
-  if (config.trackFormSubmissions) {
-    document.addEventListener('submit', function(e) {
-      var form = e.target;
-      
-      trackEvent('form_submit', {
-        form_id: form.id || null,
-        form_name: form.name || null,
-        form_action: form.action || null,
-        form_method: form.method || 'GET'
-      });
-    }, true);
-  }
-  
-  // Track time on page (send on page unload)
-  var pageLoadTime = Date.now();
-  
-  window.addEventListener('beforeunload', function() {
-    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
-    
-    trackEvent('page_unload', {
-      time_on_page: timeOnPage,
-      page_path: window.location.pathname
-    });
-  });
-  
-  // Expose tracking function globally for custom events
-  window.zappyAnalytics = {
-    track: trackEvent,
-    getVisitorId: function() { return visitorId; },
-    getSessionId: function() { return sessionId; }
-  };
-  
-})();
-</script>
-<!-- End Zappy Analytics -->
-    <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-
-<!-- Zappy Attribution Header -->
-<div id="zappy-attribution-header" class="zappy-header" style="display: none;">
-  <p data-i18n="home_p_15">Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link" data-i18n="home_link_29">Zappy</a></p>
-</div>
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <div class="nav-brand">
-        <a href="/" class="logo-link">
-          <img src="/assets/business-logo.webp" alt="OFFSCRIPT EVENTS" class="logo" data-i18n-alt="home_alt_42">
-        </a>
-      </div>
-      
-      <button class="mobile-toggle" id="mobileToggle" aria-label="תפריט">
-        <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      
-      <button class="phone-header-btn" aria-label="התקשרו אלינו">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-      </button>
-      
-      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li class="nav-cta-item-mobile"><a href="/contact" data-i18n="home_nav_40" data-element-type="button" data-original-href="/contact" style="background-color: #2c2c2c !important; border-color: #2c2c2c !important; color: #ffffff !important">צור קשר</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/blog/visual-simulation" class="nav-link">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform" class="nav-link">תכנון חכם</a></li><li><a href="/blog/location-tips" class="nav-link">טיפים ללוקיישן</a></li><li><a href="/locaitions" class="nav-link">LOCAITIONS</a></li></ul></li></ul>
-      
-      
-<div class="lang-switcher" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
-  <button class="lang-switcher-current" aria-haspopup="true" aria-expanded="false" style="display:flex;align-items:center;padding:8px;background:transparent;border:none;border-radius:6px;cursor:pointer;color:inherit;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>
-  </button>
-  <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;">
-    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt style="display:inline-block;vertical-align:middle;border-radius:50%;"> English</button>
-  </div>
-</div><div class="nav-cta-container">
-        <li class="nav-cta-item">
-          <a href="/contact" class="nav-cta-btn" data-i18n="home_nav_41" data-original-href="/contact" style="background-color: #2c2c2c !important; border-color: #2c2c2c !important; color: #ffffff !important">צור קשר</a>
-        </li>
-      </div>
-    </div>
-  </nav><main class="page-main blog-page ai-generated-page">
-  <section class="section article-content" id="article-2" style="padding: 60px 0;" data-zappy-section="true">
-    <div class="container" style="max-width: 800px; margin: 0 auto;">
-      
-      <!-- Top Navigation & Share -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
-        <a href="/blog" class="back-to-blog" style="color: #D4AF37 !important; text-decoration: none; font-weight: 600; font-size: 1.1rem;">← חזרה לבלוג</a>
-        
-        <div class="social-share-bar" style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-weight: 500; color: #303030 !important;">שתף ב:</span>
-          <a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color: #25D366 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="#" class="share-facebook" target="_blank" title="Facebook" style="color: #1877F2 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <button class="share-copy" title="העתק קישור" style="background: none; border: none; cursor: pointer; padding: 0; color: #666 !important; font-size: 18px;">🔗</button>
-        </div>
-      </div>
-
-      <!-- Article Header -->
-      <div class="article-hero-image" style="width: 100%; max-height: 400px; overflow: hidden; margin-bottom: 30px; border-radius: 12px;; position: relative; overflow: hidden;">
-        <img data-placeholder="blog-article-hero" data-context="Digital platform dashboard for event planning on a laptop screen" data-zappy-editable-image="true" src="/assets/page-blog-article-hero-1767181028261.webp" alt="תכנון אירועים דיגיטלי" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;" class="generated-image" data-og-image="assets/page-blog-article-hero-1767181028261-og.jpg">
-      </div>
-
-      <h1 style="color: #303030 !important; font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2;">המדריך המלא לבחירת פלטפורמה לתכנון אירועים</h1>
-      
-      <div style="color: #808080 !important; font-size: 0.9rem; margin-bottom: 40px; border-bottom: 1px solid #e0e0e0; padding-bottom: 20px;">
-        <span>תאריך: 22 בנובמבר 2023</span> | <span>זמן קריאה: 6 דקות</span>
-      </div>
-
-      <!-- Article Content -->
-      <div class="article-body" style="color: #202020 !important; font-size: 1.1rem; line-height: 1.8;">
-        <p style="margin-bottom: 20px;">בעידן שבו הכל מנוהל דרך הסמארטפון והענן, זה רק טבעי שגם עולם הפקת האירועים יעבור מהפכה דיגיטלית. ימי קבצי האקסל המסורבלים והמחברות הפיזיות חולפים מן העולם. היום, כל מפיק שמכבד את עצמו – וגם זוגות המתכננים את חתונתם – מחפשים פתרון כולל ונוח. בחירה נכונה של פלטפורמה לתכנון אירועים בישראל יכולה להיות ההבדל בין הפקה כאוטית ומלחיצה לבין תהליך זורם, מאורגן ומהנה.</p>
-
-        <h2 style="color: #303030 !important; font-size: 1.8rem; margin-top: 40px; margin-bottom: 20px;">ריכוז כל המידע במקום אחד</h2>
-        <p style="margin-bottom: 20px;">היתרון הגדול ביותר של שימוש בפלטפורמה דיגיטלית הוא המרכוז. במקום להתנהל מול עשרות ספקים בווטסאפ, במייל ובטלפון, הכל נמצא תחת קורת גג אחת. חוזים, הצעות מחיר, סקיצות עיצוביות, רשימות מוזמנים וסידורי הושבה – הכל נגיש מכל מכשיר ובכל זמן. פלטפורמה לתכנון אירועים בישראל המותאמת לשוק המקומי תדע גם להציע אינטגרציה עם ספקים מקומיים מובילים, מה שמקל עוד יותר על התהליך.</p>
-
-        <h2 style="color: #303030 !important; font-size: 1.8rem; margin-top: 40px; margin-bottom: 20px;">ניהול תקציב חכם</h2>
-        <p style="margin-bottom: 20px;">אחת הסיבות הנפוצות ביותר לחריגה מתקציב האירוע היא חוסר מעקב בזמן אמת. "רק הוספנו עוד בר קינוחים", "רק שידרגנו את הבר" – והופ, התקציב יצא משליטה. מערכות תכנון חכמות מאפשרות להזין כל הוצאה בזמן אמת, להגדיר התראות על חריגות ולראות תמונת מצב פיננסית מדויקת בכל רגע נתון. זהו כלי קריטי לשמירה על המסגרת הכלכלית מבלי להתפשר על האיכות.</p>
-
-        <h2 style="color: #303030 !important; font-size: 1.8rem; margin-top: 40px; margin-bottom: 20px;">ויזואליזציה והדמיה</h2>
-        <p style="margin-bottom: 20px;">פלטפורמות מתקדמות היום לא מסתפקות רק בניהול רשימות. הן מציעות כלים ויזואליים מתקדמים, כולל הדמיה ויזואלית לאירועים. היכולת לגרור ולשחרר (Drag &amp; Drop) שולחנות על גבי שרטוט האולם, ולראות איך זה ייראה בתלת-ממד, היא משנה משחק. זה מאפשר לתכנן את זרימת הקהל, למנוע צפיפות ולוודא שכל שולחן מקבל את תשומת הלב הראויה.</p>
-        <p style="margin-bottom: 20px;">לסיכום, הטכנולוגיה כאן כדי לשרת אותנו. שימוש בפלטפורמה ייעודית לתכנון האירוע שלכם יפנה לכם זמן יקר, יפחית את מפלס הלחץ ויאפשר לכם להתמקד במה שחשוב באמת – ליצור חוויה בלתי נשכחת עבור האורחים שלכם.</p>
-      </div>
-
-      <!-- Bottom Navigation & Share -->
-      <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-        <a href="/blog" class="back-to-blog" style="color: #D4AF37 !important; text-decoration: none; font-weight: 600; font-size: 1.1rem;">← חזרה לבלוג</a>
-        
-        <div class="social-share-bar" style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-weight: 500; color: #303030 !important;">שתף ב:</span>
-          <a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color: #25D366 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="#" class="share-facebook" target="_blank" title="Facebook" style="color: #1877F2 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <button class="share-copy" title="העתק קישור" style="background: none; border: none; cursor: pointer; padding: 0; color: #666 !important; font-size: 18px;">🔗</button>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <!-- Legal Footer -->
-    <footer class="legal-footer">
-      <div class="container">
-        <div class="footer-main">
-          <div class="all-rights-reserved">
-            <p data-i18n="home_p_27">© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.</p>
-          </div>
-          <div class="footer-social"><a href="https://facebook.com/https://www.facebook.com/orencorcos/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-<a href="https://instagram.com/https://www.threads.com/@orencorcos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-<a href="https://wa.me/972542911625" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-<a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display:none;"><i class="fab fa-youtube"></i></a>
-<a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="display:none;"><i class="fab fa-tiktok"></i></a></div>
-          <div class="footer-legal">
-            <a href="/privacy" aria-label="מדיניות פרטיות" data-i18n="home_link_33">
-              מדיניות פרטיות
-            </a>
-            <span class="separator">|</span>
-            <a href="/accessibility" aria-label="נגישות" data-i18n="home_link_34">
-              נגישות
-            </a>
-            <span class="separator">|</span>
-            <a href="/terms" aria-label="תנאי שימוש" data-i18n="home_link_35">
-              תנאי שימוש
-            </a>
-          </div>
-        </div>
-        <div class="zappy-attribution">
-          <p data-i18n="home_p_28">נוצר באמצעות&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="home_link_36">Zappy</a></p>
-        </div>
-      </div>
-    </footer>
-
-
-<!-- Zappy Attribution Header Script -->
-<script>
-(function() {
+            })();</script><script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script><style>.nav-menu li:has(.sub-menu),.navbar li:has(.sub-menu),nav li:has(.sub-menu){position:relative}.nav-menu .sub-menu,.navbar .sub-menu,nav .sub-menu{display:block;position:absolute;top:100%;left:0;min-width:220px;background:#fff;border-radius:8px;box-shadow:0 8px 25px rgba(0,0,0,.15);padding:8px 0;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s ease;z-index:1000;list-style:none;pointer-events:none}.sub-menu li{list-style:none;margin:0;padding:0}.sub-menu a{display:block;padding:10px 16px;color:#333;font-weight:500;text-decoration:none;white-space:nowrap;transition:background-color .2s}.sub-menu a:hover{background-color:#f5f5f5}[dir=rtl] .sub-menu,html[lang=ar] .sub-menu,html[lang=he] .sub-menu{left:auto;right:0}</style></head><body><nav class="navbar" id="navbar"><div class="container nav-container"><div class="nav-brand"><a href="/" class="logo-link"><img alt="OFFSCRIPT EVENTS" src="assets/business-logo.webp" class="logo" data-i18n-alt="home_alt_42"></a></div><button class="mobile-toggle" aria-label="תפריט" id="mobileToggle"><svg fill="none" height="24" viewbox="0 0 24 24" width="24" class="hamburger-icon"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg><svg fill="none" height="24" viewbox="0 0 24 24" width="24" class="close-icon" style="display:none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></button><button class="phone-header-btn" aria-label="התקשרו אלינו"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button><ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li class="nav-cta-item-mobile"><a href="/contact" data-i18n="home_nav_40" style="background-color:#2c2c2c!important;border-color:#2c2c2c!important;color:#fff!important" data-original-href="/contact" data-element-type="button">צור קשר</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/blog/visual-simulation" class="nav-link">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform" class="nav-link">תכנון חכם</a></li><li><a href="/blog/location-tips" class="nav-link">טיפים ללוקיישן</a></li><li><a href="/locaitions" class="nav-link">LOCAITIONS</a></li></ul></li></ul><div class="lang-switcher" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px"><button class="lang-switcher-current" style="display:flex;align-items:center;padding:8px;background:0 0;border:none;border-radius:6px;cursor:pointer;color:inherit" aria-expanded="false" aria-haspopup="true"><svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg></button><div class="lang-switcher-dropdown" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:#fff;border:1px solid rgba(128,128,128,.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .2s ease;z-index:1001" role="menu"><button class="lang-option" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:0 0;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333" data-lang="en"><img alt="" src="https://api.iconify.design/circle-flags/us.svg" height="20" style="display:inline-block;vertical-align:middle;border-radius:50%" width="20">English</button></div></div><div class="nav-cta-container"><li class="nav-cta-item"><a href="/contact" data-i18n="home_nav_41" style="background-color:#2c2c2c!important;border-color:#2c2c2c!important;color:#fff!important" data-original-href="/contact" class="nav-cta-btn">צור קשר</a></li></div></div></nav><main><section class="bg-white layout-section md:py-24 py-16 zappy-removable" data-zappy-component="true" id="layout-1767181675361" style="width:100%;padding:60px 0"><div class="container md:px-8 mx-auto px-4 text-center"><h1 class="font-bold mb-4 md:text-4xl text-3xl">LOCAITIONS</h1><p class="text-gray-600 text-lg">This page is ready for your content.</p></div></section></main><footer class="legal-footer"><div class="container"><div class="footer-main"><div class="all-rights-reserved"><p data-i18n="home_p_27">© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.</p></div><div class="footer-social"><a href="https://facebook.com/https://www.facebook.com/orencorcos/" aria-label="Facebook" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://instagram.com/https://www.threads.com/@orencorcos" aria-label="Instagram" rel="noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://wa.me/972542911625" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="#" aria-label="YouTube" rel="noopener noreferrer" target="_blank" style="display:none"><i class="fab fa-youtube"></i></a><a href="#" aria-label="TikTok" rel="noopener noreferrer" target="_blank" style="display:none"><i class="fab fa-tiktok"></i></a></div><div class="footer-legal"><a href="/privacy" data-i18n="home_link_33" aria-label="מדיניות פרטיות">מדיניות פרטיות</a><span class="separator">|</span><a href="/accessibility" data-i18n="home_link_34" aria-label="נגישות">נגישות</a><span class="separator">|</span><a href="/terms" data-i18n="home_link_35" aria-label="תנאי שימוש">תנאי שימוש</a></div></div><div class="zappy-attribution"><p data-i18n="home_p_28">נוצר באמצעות&nbsp;<a href="https://zappy5.com" data-i18n="home_link_36" style="color:inherit;text-decoration:none" rel="noopener noreferrer" target="_blank">Zappy</a></p></div></div></footer><script>(function() {
   var websiteId = '7bb70439-1f01-4c52-b2b8-582f1ab910c2';
   
   // Don't show header in preview mode
@@ -1007,14 +125,14 @@ img[data-no-hero-position] { position: static !important; }
         var header = document.getElementById('zappy-attribution-header');
         if (header) {
           // Use dynamic announcement content if available
-          if (data.announcement && data.announcement.html) {
+          if (data.announcement &amp;&amp; data.announcement.html) {
             header.innerHTML = data.announcement.html;
           }
           // Apply fixed positioning styles inline (works for existing sites too)
           header.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 99999 !important; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; box-sizing: border-box !important;';
           // Fix child elements that might have position: fixed from old CSS
           var children = header.querySelectorAll('*');
-          for (var i = 0; i < children.length; i++) {
+          for (var i = 0; i &lt; children.length; i++) {
             children[i].style.position = 'static';
           }
           // Get header height
@@ -1022,9 +140,9 @@ img[data-no-hero-position] { position: static !important; }
           // Find and fix navbar to be fixed as well (prevents gap at top of page)
           var navSelectors = ['nav', '.navbar', '.nav'];
           var navbar = null;
-          for (var j = 0; j < navSelectors.length; j++) {
+          for (var j = 0; j &lt; navSelectors.length; j++) {
             navbar = document.querySelector(navSelectors[j]);
-            if (navbar && navbar.id !== 'zappy-attribution-header') break;
+            if (navbar &amp;&amp; navbar.id !== 'zappy-attribution-header') break;
             navbar = null;
           }
           if (navbar) {
@@ -1040,17 +158,7 @@ img[data-no-hero-position] { position: static !important; }
     .catch(function(error) {
       console.error('Failed to check tier:', error);
     });
-})();
-</script>
-    <div data-integration="accessibility:toolbar"></div>
-
-
-
-
-
-<!-- i18next Multi-Language Support -->
-<script>
-(function() {
+})();</script><script>(function() {
   // Language resources (inline to avoid CDN dependency)
   const resources = {
   "he": {
@@ -1647,7 +755,7 @@ img[data-no-hero-position] { position: static !important; }
       "menu_group_1766946580153_p_41": "רחוב הרצל 123, תל אביב",
       "menu_group_1766946580153_p_42": "א'-ה': 9:00-18:00",
       "menu_group_1766946580153_p_43": "מומחה לכירורגיה פלסטית ואסתטית",
-      "menu_group_1766946580153_p_44": "&copy; 2024 דר' אלכס לוין. כל הזכויות שמורות.",
+      "menu_group_1766946580153_p_44": "&amp;copy; 2024 דר' אלכס לוין. כל הזכויות שמורות.",
       "accessibility_meta_description": "הצהרת הנגישות שלנו - מחויבותנו לנגישות דיגיטלית",
       "legal_accessibility_page_title": "הצהרת נגישות - OFFSCRIPT EVENTS",
       "menu_group_1766946580153_h3_10": "ניתוחי חזה",
@@ -2299,7 +1407,7 @@ img[data-no-hero-position] { position: static !important; }
       "menu_group_1766946580153_p_41": "123 Herzl Street, Tel Aviv",
       "menu_group_1766946580153_p_42": "Sun-Thu: 9:00-18:00",
       "menu_group_1766946580153_p_43": "Specialist in plastic and aesthetic surgery",
-      "menu_group_1766946580153_p_44": "&copy; 2024 Dr. Alex Levin. All rights reserved.",
+      "menu_group_1766946580153_p_44": "&amp;copy; 2024 Dr. Alex Levin. All rights reserved.",
       "accessibility_meta_description": "Our accessibility statement - our commitment to digital accessibility",
       "legal_accessibility_page_title": "Accessibility Statement - OFFSCRIPT EVENTS",
       "menu_group_1766946580153_h3_10": "Breast Surgery",
@@ -2366,13 +1474,13 @@ img[data-no-hero-position] { position: static !important; }
   const availableLanguages = ["he","en"];
   
   // Language display info with SVG flag images for cross-platform compatibility
-  const languageInfo = {"he":{"name":"Hebrew","nativeName":"עברית","flag":"🇮🇱","flagIcon":"circle-flags:il","dir":"rtl","flagImg":"<img src=\"https://api.iconify.design/circle-flags/il.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"},"en":{"name":"English","nativeName":"English","flag":"🇺🇸","flagIcon":"circle-flags:us","dir":"ltr","flagImg":"<img src=\"https://api.iconify.design/circle-flags/us.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"}};
+  const languageInfo = {"he":{"name":"Hebrew","nativeName":"עברית","flag":"🇮🇱","flagIcon":"circle-flags:il","dir":"rtl","flagImg":"&lt;img src=\"https://api.iconify.design/circle-flags/il.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" /&gt;"},"en":{"name":"English","nativeName":"English","flag":"🇺🇸","flagIcon":"circle-flags:us","dir":"ltr","flagImg":"&lt;img src=\"https://api.iconify.design/circle-flags/us.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" /&gt;"}};
   
   // Detect stored language preference - only use stored value, not browser language
   // This ensures the site respects its original design (e.g., RTL Hebrew site stays RTL by default)
   function detectLanguage() {
     const stored = localStorage.getItem('zappy_lang');
-    if (stored && availableLanguages.includes(stored)) return stored;
+    if (stored &amp;&amp; availableLanguages.includes(stored)) return stored;
     
     // Always default to the site's default language, not browser language
     // This prevents breaking the original site layout on first visit
@@ -2385,12 +1493,12 @@ img[data-no-hero-position] { position: static !important; }
     resources: resources,
     t: function(key) {
       const langResources = this.resources[this.language];
-      if (langResources && langResources.translation && langResources.translation[key]) {
+      if (langResources &amp;&amp; langResources.translation &amp;&amp; langResources.translation[key]) {
         return langResources.translation[key];
       }
       // Fallback to default language
       const fallbackResources = this.resources['he'];
-      if (fallbackResources && fallbackResources.translation && fallbackResources.translation[key]) {
+      if (fallbackResources &amp;&amp; fallbackResources.translation &amp;&amp; fallbackResources.translation[key]) {
         return fallbackResources.translation[key];
       }
       return key;
@@ -2416,11 +1524,11 @@ img[data-no-hero-position] { position: static !important; }
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');
       var translation = zappyI18n.t(key);
-      if (translation && translation !== key) {
-        // Check if translation contains newlines that need to be rendered as <br>
+      if (translation &amp;&amp; translation !== key) {
+        // Check if translation contains newlines that need to be rendered as &lt;br&gt;
         if (translation.indexOf(newlineChar) !== -1) {
-          // Convert newlines to <br> and use innerHTML to preserve HTML formatting
-          el.innerHTML = translation.split(newlineChar).join('<br>');
+          // Convert newlines to &lt;br&gt; and use innerHTML to preserve HTML formatting
+          el.innerHTML = translation.split(newlineChar).join('&lt;br&gt;');
         } else {
           // No newlines, use textContent for safety
           el.textContent = translation;
@@ -2432,7 +1540,7 @@ img[data-no-hero-position] { position: static !important; }
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-placeholder');
       const translation = zappyI18n.t(key);
-      if (translation && translation !== key) {
+      if (translation &amp;&amp; translation !== key) {
         el.setAttribute('placeholder', translation);
       }
     });
@@ -2441,7 +1549,7 @@ img[data-no-hero-position] { position: static !important; }
     document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-alt');
       const translation = zappyI18n.t(key);
-      if (translation && translation !== key) {
+      if (translation &amp;&amp; translation !== key) {
         el.setAttribute('alt', translation);
       }
     });
@@ -2450,7 +1558,7 @@ img[data-no-hero-position] { position: static !important; }
     document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-title');
       const translation = zappyI18n.t(key);
-      if (translation && translation !== key) {
+      if (translation &amp;&amp; translation !== key) {
         el.setAttribute('title', translation);
       }
     });
@@ -2459,7 +1567,7 @@ img[data-no-hero-position] { position: static !important; }
     document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-content');
       const translation = zappyI18n.t(key);
-      if (translation && translation !== key) {
+      if (translation &amp;&amp; translation !== key) {
         el.setAttribute('content', translation);
       }
     });
@@ -2469,7 +1577,7 @@ img[data-no-hero-position] { position: static !important; }
     if (titleEl) {
       const key = titleEl.getAttribute('data-i18n');
       const translation = zappyI18n.t(key);
-      if (translation && translation !== key) {
+      if (translation &amp;&amp; translation !== key) {
         document.title = translation;
       }
     }
@@ -2513,7 +1621,7 @@ img[data-no-hero-position] { position: static !important; }
       el.style.direction = newDir;
       el.style.justifyContent = 'flex-start';
       // Only set flex-direction on desktop (check viewport width)
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth &gt;= 768) {
         el.style.flexDirection = 'row';
       }
     });
@@ -2525,13 +1633,13 @@ img[data-no-hero-position] { position: static !important; }
       el.style.marginLeft = '0';
       el.style.marginRight = '0';
       // Only set flex-direction on desktop
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth &gt;= 768) {
         el.style.flexDirection = 'row';
       }
     });
     
     // Reset all nav link margins to keep them near logo
-    document.querySelectorAll('header > a, nav > a, .nav-menu > a, .nav-links > a, nav ul li, header ul li').forEach(function(el) {
+    document.querySelectorAll('header &gt; a, nav &gt; a, .nav-menu &gt; a, .nav-links &gt; a, nav ul li, header ul li').forEach(function(el) {
       // Skip CTA buttons - they need their auto margin
       if (el.classList.contains('btn') || el.classList.contains('button') || el.classList.contains('cta') || 
           el.className.includes('btn-') || el.className.includes('button-')) {
@@ -2566,7 +1674,7 @@ img[data-no-hero-position] { position: static !important; }
     });
     
     // Globe icon SVG for language switcher button (minimal design, no chevron)
-    const globeIconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>';
+    const globeIconSvg = '&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"&gt;&lt;path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/&gt;&lt;/svg&gt;';
     
     // Update language switcher display - just the globe icon, no arrow
     const currentLangEl = document.querySelector('.lang-switcher-current');
@@ -2581,7 +1689,7 @@ img[data-no-hero-position] { position: static !important; }
         .map(function(lang) {
           const info = languageInfo[lang] || { flag: '🌐', flagImg: '🌐', nativeName: lang };
           // Use flagImg (SVG) for cross-platform compatibility, fallback to emoji flag
-          return '<button class="lang-option" data-lang="' + lang + '" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;">' + (info.flagImg || info.flag) + ' ' + info.nativeName + '</button>';
+          return '&lt;button class="lang-option" data-lang="' + lang + '" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"&gt;' + (info.flagImg || info.flag) + ' ' + info.nativeName + '&lt;/button&gt;';
         })
         .join('');
       
@@ -2672,153 +1780,4 @@ img[data-no-hero-position] { position: static !important; }
   } else {
     init();
   }
-})();
-</script>
-
-<script id="zappy-share-script">
-(function() {
-  function getShareUrl() {
-    // Priority 1: Check for deployed site URL meta tag (set by Zappy when site is published)
-    var siteUrl = document.querySelector('meta[name="zappy-site-url"]');
-    if (siteUrl && siteUrl.content) {
-      var basePath = window.location.pathname;
-      var pageParam = new URLSearchParams(window.location.search).get('page');
-      var pagePath = pageParam || basePath;
-      if (pagePath.startsWith('/api/website/preview')) pagePath = '/';
-      return siteUrl.content.replace(/\/$/, '') + pagePath;
-    }
-    var c = document.querySelector('link[rel="canonical"]');
-    if (c && c.href && !c.href.includes('localhost') && !c.href.includes('preview')) return c.href;
-    var m = document.querySelector('meta[property="og:url"]');
-    if (m && m.content && !m.content.includes('localhost') && !m.content.includes('preview')) return m.content;
-    var isPreview = window.location.href.includes('preview') || window.location.href.includes('localhost') || window.location.href.includes('auth_token');
-    if (isPreview) return null;
-    return window.location.origin + window.location.pathname;
-  }
-  function setShareHref(selectors, href, isDisabled) {
-    selectors.forEach(function(sel) {
-      document.querySelectorAll(sel).forEach(function(el) {
-        if (isDisabled) {
-          el.style.opacity = '0.5';
-          el.style.cursor = 'not-allowed';
-          el.title = 'Share links will work after publishing';
-          el.onclick = function(e) { e.preventDefault(); };
-        } else {
-          el.href = href;
-        }
-      });
-    });
-  }
-  // Normalize share bars to ensure all 5 icons are present
-  function normalizeShareBars() {
-    var shareBars = document.querySelectorAll('.social-share-bar');
-    if (shareBars.length === 0) return;
-    // Define all required share icons with their SVG
-    var shareIcons = {
-      copy: { selectors: ['.share-copy', 'button[title="Copy link"]', 'a[title="Copy link"]'], 
-        html: '<a href="#" class="share-copy" title="Copy link" style="color:#666;display:flex;align-items:center;cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></a>' },
-      linkedin: { selectors: ['.share-linkedin', 'a[title="LinkedIn"]'], 
-        html: '<a href="#" class="share-linkedin" target="_blank" title="LinkedIn" style="color:#0a66c2!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>' },
-      twitter: { selectors: ['.share-twitter', 'a[title="Twitter"]', 'a[title="Twitter/X"]', 'a[title="X"]'], 
-        html: '<a href="#" class="share-twitter" target="_blank" title="X" style="color:#000!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>' },
-      facebook: { selectors: ['.share-facebook', 'a[title="Facebook"]'], 
-        html: '<a href="#" class="share-facebook" target="_blank" title="Facebook" style="color:#1877f2!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>' },
-      whatsapp: { selectors: ['.share-whatsapp', 'a[title="WhatsApp"]'], 
-        html: '<a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color:#25d366!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>' }
-    };
-    // Order of icons (right to left for RTL, so we add in this order)
-    var iconOrder = ['copy', 'linkedin', 'twitter', 'facebook', 'whatsapp'];
-    shareBars.forEach(function(bar) {
-      iconOrder.forEach(function(iconKey) {
-        var icon = shareIcons[iconKey];
-        var exists = icon.selectors.some(function(sel) { return bar.querySelector(sel); });
-        if (!exists) {
-          // Find the label span and insert after it
-          var label = bar.querySelector('span');
-          if (label) {
-            label.insertAdjacentHTML('afterend', icon.html);
-          } else {
-            bar.insertAdjacentHTML('afterbegin', icon.html);
-          }
-        }
-      });
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    // First normalize the share bars to ensure all icons exist
-    normalizeShareBars();
-    var url = getShareUrl();
-    var title = document.title;
-    var isDisabled = !url;
-    if (isDisabled) console.log('[Zappy] Share links disabled in preview mode - will work after publishing');
-    // WhatsApp
-    setShareHref(['.share-whatsapp', 'a[title="WhatsApp"]', 'a[title="whatsapp"]'], 
-      url ? 'https://wa.me/?text=' + encodeURIComponent(title + ' ' + url) : '#', isDisabled);
-    // Facebook
-    setShareHref(['.share-facebook', 'a[title="Facebook"]', 'a[title="facebook"]'], 
-      url ? 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) : '#', isDisabled);
-    // Twitter/X
-    setShareHref(['.share-twitter', 'a[title="Twitter"]', 'a[title="Twitter/X"]', 'a[title="X"]'], 
-      url ? 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title) : '#', isDisabled);
-    // LinkedIn
-    setShareHref(['.share-linkedin', 'a[title="LinkedIn"]', 'a[title="linkedin"]'], 
-      url ? 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) : '#', isDisabled);
-    // Copy link button
-    ['.share-copy', 'button[title="Copy link"]', 'button[title="copy"]', 'a[title="Copy link"]'].forEach(function(sel) {
-      document.querySelectorAll(sel).forEach(function(el) {
-        if (isDisabled) {
-          el.style.opacity = '0.5';
-          el.style.cursor = 'not-allowed';
-          el.title = 'Copy link will work after publishing';
-          el.onclick = function(e) { e.preventDefault(); };
-        } else {
-          el.onclick = function(e) {
-            e.preventDefault();
-            navigator.clipboard.writeText(url).then(function() {
-              var orig = el.innerHTML;
-              el.innerHTML = '✓';
-              setTimeout(function() { el.innerHTML = orig; }, 1500);
-            });
-          };
-        }
-      });
-    });
-  });
-})();
-</script>
-    <script id="zappy-mobile-submenu-script">
-    (function() {
-      function initMobileSubmenuToggles() {
-        if (window.innerWidth > 768) {
-          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
-          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
-          return;
-        }
-        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
-        items.forEach(function(li) {
-          if (li.querySelector('.mobile-submenu-toggle')) return;
-          var submenu = li.querySelector('.sub-menu');
-          var parentLink = li.querySelector(':scope > a');
-          if (!submenu || !parentLink) return;
-          var toggleBtn = document.createElement('button');
-          toggleBtn.className = 'mobile-submenu-toggle';
-          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
-          toggleBtn.setAttribute('type', 'button');
-          parentLink.insertAdjacentElement('afterend', toggleBtn);
-          toggleBtn.addEventListener('click', function(e) {
-            e.preventDefault(); e.stopPropagation();
-            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
-              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
-            });
-            submenu.classList.toggle('mobile-expanded');
-            toggleBtn.classList.toggle('expanded');
-          });
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
-      else { initMobileSubmenuToggles(); }
-      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
-    })();
-    </script>
-    <script src="/script.js"></script>
-</body></html>
+})();</script></body></html><script src="/script.js"></script><script id="zappy-mobile-submenu-script">!function(){function e(){if(window.innerWidth>768)return document.querySelectorAll(".mobile-submenu-toggle").forEach(function(e){e.remove()}),void document.querySelectorAll(".sub-menu.mobile-expanded").forEach(function(e){e.classList.remove("mobile-expanded")});document.querySelectorAll(".nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)").forEach(function(e){if(!e.querySelector(".mobile-submenu-toggle")){var t=e.querySelector(".sub-menu"),n=e.querySelector(":scope > a")||e.querySelector(":scope > .menu-group-title");if(t&&n){var o=document.createElement("button");o.className="mobile-submenu-toggle",o.setAttribute("aria-label","Toggle submenu"),o.setAttribute("type","button"),n.insertAdjacentElement("afterend",o),o.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation(),document.querySelectorAll(".sub-menu.mobile-expanded").forEach(function(e){if(e!==t){e.classList.remove("mobile-expanded");var n=e.parentElement.querySelector(".mobile-submenu-toggle");n&&n.classList.remove("expanded")}}),t.classList.toggle("mobile-expanded"),o.classList.toggle("expanded")})}}})}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",e):e(),window.addEventListener("resize",function(){clearTimeout(window._mrt),window._mrt=setTimeout(e,250)})}()</script></body></html>
