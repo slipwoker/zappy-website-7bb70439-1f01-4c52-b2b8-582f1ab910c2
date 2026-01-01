@@ -92,8 +92,8 @@
             }
             
             /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu > li > .menu-group-title,
-            #navMenu > li > .menu-group-title {
+            .nav-menu &gt; li &gt; .menu-group-title,
+            #navMenu &gt; li &gt; .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -107,13 +107,13 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu > li > .menu-group-title:hover,
-            #navMenu > li > .menu-group-title:hover {
+            .nav-menu &gt; li &gt; .menu-group-title:hover,
+            #navMenu &gt; li &gt; .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
             }
             
             /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover > .sub-menu {
+            li:has(.menu-group-title):hover &gt; .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -122,7 +122,7 @@
             
             /* Hide menu items marked as hidden (overrides hover states) */
             .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover > .sub-menu .zappy-hidden-menu-item {
+            li:has(.menu-group-title):hover &gt; .sub-menu .zappy-hidden-menu-item {
               display: none !important;
               opacity: 0 !important;
               visibility: hidden !important;
@@ -175,9 +175,9 @@
             }
             
             /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover > .sub-menu,
-            nav li:hover > .sub-menu,
-            .navbar li:hover > .sub-menu {
+            .nav-menu li:hover &gt; .sub-menu,
+            nav li:hover &gt; .sub-menu,
+            .navbar li:hover &gt; .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -215,8 +215,8 @@
             }
             
             /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu > li > .menu-group-title,
-            #navMenu > li > .menu-group-title {
+            .nav-menu &gt; li &gt; .menu-group-title,
+            #navMenu &gt; li &gt; .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -230,8 +230,8 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu > li > .menu-group-title:hover,
-            #navMenu > li > .menu-group-title:hover {
+            .nav-menu &gt; li &gt; .menu-group-title:hover,
+            #navMenu &gt; li &gt; .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
               background-color: transparent !important;
             }
@@ -272,18 +272,18 @@
               }
               
               /* Disable hover behavior on mobile */
-              .nav-menu li:hover > .sub-menu,
-              nav li:hover > .sub-menu,
-              .navbar li:hover > .sub-menu {
+              .nav-menu li:hover &gt; .sub-menu,
+              nav li:hover &gt; .sub-menu,
+              .navbar li:hover &gt; .sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
               }
               
               /* Enable visibility for expanded submenus */
-              .nav-menu li > .sub-menu.mobile-expanded,
-              nav li > .sub-menu.mobile-expanded,
-              .navbar li > .sub-menu.mobile-expanded {
+              .nav-menu li &gt; .sub-menu.mobile-expanded,
+              nav li &gt; .sub-menu.mobile-expanded,
+              .navbar li &gt; .sub-menu.mobile-expanded {
                 opacity: 1 !important;
                 visibility: visible !important;
                 pointer-events: auto !important;
@@ -309,11 +309,11 @@
               }
               
               /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) > a,
-              nav li:has(.sub-menu) > a,
-              .navbar li:has(.sub-menu) > a,
-              .nav-menu > li > .menu-group-title,
-              #navMenu > li > .menu-group-title {
+              .nav-menu li:has(.sub-menu) &gt; a,
+              nav li:has(.sub-menu) &gt; a,
+              .navbar li:has(.sub-menu) &gt; a,
+              .nav-menu &gt; li &gt; .menu-group-title,
+              #navMenu &gt; li &gt; .menu-group-title {
                 flex: 1 !important;
               }
               
@@ -350,9 +350,9 @@
               }
               
               /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) > .sub-menu,
-              nav li:has(.sub-menu) > .sub-menu,
-              .navbar li:has(.sub-menu) > .sub-menu {
+              .nav-menu li:has(.sub-menu) &gt; .sub-menu,
+              nav li:has(.sub-menu) &gt; .sub-menu,
+              .navbar li:has(.sub-menu) &gt; .sub-menu {
                 flex-basis: 100% !important;
                 width: 100% !important;
               }
@@ -372,10 +372,10 @@
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth > 768) {
+                if (window.innerWidth &gt; 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu => {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&gt; btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&gt; {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -398,7 +398,7 @@
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
+                  const parentLink = li.querySelector(':scope &gt; a') || li.querySelector(':scope &gt; .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -458,7 +458,7 @@
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' &amp;&amp; mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -558,7 +558,7 @@ section[data-zappy-section] { display: block !important; grid-template-columns: 
 }
 /* Hero container fixes - contain absolute images */
 [class*="hero"], [id*="hero"] { position: relative !important; overflow: hidden !important; }
-[class*="hero"] > .container, [id*="hero"] > .container { position: relative; z-index: 2; }
+[class*="hero"] &gt; .container, [id*="hero"] &gt; .container { position: relative; z-index: 2; }
 .hero-image-wrapper, [class*="image-wrapper"] { position: relative !important; overflow: hidden !important; }
 /* Prevent hero positioning on non-hero page images */
 img[data-no-hero-position] { position: static !important; }
@@ -600,9 +600,9 @@ img[data-no-hero-position] { position: static !important; }
         list-style: none;
         pointer-events: none;
       }
-      .nav-menu li:hover > .sub-menu,
-      nav li:hover > .sub-menu,
-      .navbar li:hover > .sub-menu {
+      .nav-menu li:hover &gt; .sub-menu,
+      nav li:hover &gt; .sub-menu,
+      .navbar li:hover &gt; .sub-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -851,29 +851,29 @@ img[data-no-hero-position] { position: static !important; }
       </div>
       
       <button class="mobile-toggle" id="mobileToggle" aria-label="תפריט">
-        <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <svg class="hamburger-icon" width="24" height="24" viewbox="0 0 24 24" fill="none">
+          <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
         </svg>
-        <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <svg class="close-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" style="display: none;">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
         </svg>
       </button>
       
       <button class="phone-header-btn" aria-label="התקשרו אלינו">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
       </button>
       
-      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li class="nav-cta-item-mobile"><a href="/contact" data-i18n="home_nav_40" data-element-type="button" data-original-href="/contact" style="background-color: #2c2c2c !important; border-color: #2c2c2c !important; color: #ffffff !important">צור קשר</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/blog/visual-simulation" class="nav-link">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform" class="nav-link">תכנון חכם</a></li><li><a href="/blog/location-tips" class="nav-link">טיפים ללוקיישן</a></li><li><a href="/locaitions" class="nav-link">LOCAITIONS</a></li></ul></li></ul>
+      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li><a href="/blog/visual-simulation">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform">תכנון חכם</a></li><li><a href="/blog/location-tips">טיפים ללוקיישן</a></li></ul></li><li><a href="/locaitions">LOCAITIONS</a></li><li class="nav-cta-item-mobile"><a href="/contact">צור קשר</a></li><li><a href="/locaitions-pool">LOCAITIONS ALT<br></a></li></ul>
       
       
 <div class="lang-switcher" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
   <button class="lang-switcher-current" aria-haspopup="true" aria-expanded="false" style="display:flex;align-items:center;padding:8px;background:transparent;border:none;border-radius:6px;cursor:pointer;color:inherit;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg>
   </button>
   <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;">
-    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt style="display:inline-block;vertical-align:middle;border-radius:50%;"> English</button>
+    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt="" style="display:inline-block;vertical-align:middle;border-radius:50%;"> English</button>
   </div>
 </div><div class="nav-cta-container">
         <li class="nav-cta-item">
@@ -891,15 +891,15 @@ img[data-no-hero-position] { position: static !important; }
         
         <div class="social-share-bar" style="display: flex; align-items: center; gap: 12px;">
           <span style="font-weight: 500; color: #303030 !important;">שתף ב:</span>
-          <a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color: #25D366 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="#" class="share-facebook" target="_blank" title="Facebook" style="color: #1877F2 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color: #25D366 !important;"><svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+          <a href="#" class="share-facebook" target="_blank" title="Facebook" style="color: #1877F2 !important;"><svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
           <button class="share-copy" title="העתק קישור" style="background: none; border: none; cursor: pointer; padding: 0; color: #666 !important; font-size: 18px;">🔗</button>
         </div>
       </div>
 
       <!-- Article Header -->
       <div class="article-hero-image" style="width: 100%; max-height: 400px; overflow: hidden; margin-bottom: 30px; border-radius: 12px;; position: relative; overflow: hidden;">
-        <img data-placeholder="blog-article-hero" data-context="Scenic outdoor event venue in Israel with sunset" data-zappy-editable-image="true" src="/assets/page-blog-article-hero-1767181045057.webp" alt="לוקיישן לאירוע" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;" class="generated-image" data-og-image="assets/page-blog-article-hero-1767181045057-og.jpg">
+        <img data-placeholder="blog-article-hero" data-context="Scenic outdoor event venue in Israel with sunset" data-zappy-editable-image="true" src="/assets/business-general-service-upload-1767211139944.webp" alt="לוקיישן לאירוע" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9;;;;; object-position: 50% 50%;" class="generated-image zappy-editable-image" data-og-image="assets/page-blog-article-hero-1767181045057-og.jpg" data-element-id="img-1767211021135-qqfmteg0c" width="760" height="428">
       </div>
 
       <h1 style="color: #303030 !important; font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2;">איך להתאים את הלוקיישן לקונספט האירוע?</h1>
@@ -929,8 +929,8 @@ img[data-no-hero-position] { position: static !important; }
         
         <div class="social-share-bar" style="display: flex; align-items: center; gap: 12px;">
           <span style="font-weight: 500; color: #303030 !important;">שתף ב:</span>
-          <a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color: #25D366 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="#" class="share-facebook" target="_blank" title="Facebook" style="color: #1877F2 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color: #25D366 !important;"><svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+          <a href="#" class="share-facebook" target="_blank" title="Facebook" style="color: #1877F2 !important;"><svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
           <button class="share-copy" title="העתק קישור" style="background: none; border: none; cursor: pointer; padding: 0; color: #666 !important; font-size: 18px;">🔗</button>
         </div>
       </div>
@@ -1007,14 +1007,14 @@ img[data-no-hero-position] { position: static !important; }
         var header = document.getElementById('zappy-attribution-header');
         if (header) {
           // Use dynamic announcement content if available
-          if (data.announcement && data.announcement.html) {
+          if (data.announcement &amp;&amp; data.announcement.html) {
             header.innerHTML = data.announcement.html;
           }
           // Apply fixed positioning styles inline (works for existing sites too)
           header.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 99999 !important; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; box-sizing: border-box !important;';
           // Fix child elements that might have position: fixed from old CSS
           var children = header.querySelectorAll('*');
-          for (var i = 0; i < children.length; i++) {
+          for (var i = 0; i &lt; children.length; i++) {
             children[i].style.position = 'static';
           }
           // Get header height
@@ -1022,9 +1022,9 @@ img[data-no-hero-position] { position: static !important; }
           // Find and fix navbar to be fixed as well (prevents gap at top of page)
           var navSelectors = ['nav', '.navbar', '.nav'];
           var navbar = null;
-          for (var j = 0; j < navSelectors.length; j++) {
+          for (var j = 0; j &lt; navSelectors.length; j++) {
             navbar = document.querySelector(navSelectors[j]);
-            if (navbar && navbar.id !== 'zappy-attribution-header') break;
+            if (navbar &amp;&amp; navbar.id !== 'zappy-attribution-header') break;
             navbar = null;
           }
           if (navbar) {
@@ -1048,6 +1048,119 @@ img[data-no-hero-position] { position: static !important; }
 
 
 
+
+
+<script id="zappy-share-script">
+(function() {
+  function getShareUrl() {
+    // Priority 1: Check for deployed site URL meta tag (set by Zappy when site is published)
+    var siteUrl = document.querySelector('meta[name="zappy-site-url"]');
+    if (siteUrl &amp;&amp; siteUrl.content) {
+      var basePath = window.location.pathname;
+      var pageParam = new URLSearchParams(window.location.search).get('page');
+      var pagePath = pageParam || basePath;
+      if (pagePath.startsWith('/api/website/preview')) pagePath = '/';
+      return siteUrl.content.replace(/\/$/, '') + pagePath;
+    }
+    var c = document.querySelector('link[rel="canonical"]');
+    if (c &amp;&amp; c.href &amp;&amp; !c.href.includes('localhost') &amp;&amp; !c.href.includes('preview')) return c.href;
+    var m = document.querySelector('meta[property="og:url"]');
+    if (m &amp;&amp; m.content &amp;&amp; !m.content.includes('localhost') &amp;&amp; !m.content.includes('preview')) return m.content;
+    var isPreview = window.location.href.includes('preview') || window.location.href.includes('localhost') || window.location.href.includes('auth_token');
+    if (isPreview) return null;
+    return window.location.origin + window.location.pathname;
+  }
+  function setShareHref(selectors, href, isDisabled) {
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        if (isDisabled) {
+          el.style.opacity = '0.5';
+          el.style.cursor = 'not-allowed';
+          el.title = 'Share links will work after publishing';
+          el.onclick = function(e) { e.preventDefault(); };
+        } else {
+          el.href = href;
+        }
+      });
+    });
+  }
+  // Normalize share bars to ensure all 5 icons are present
+  function normalizeShareBars() {
+    var shareBars = document.querySelectorAll('.social-share-bar');
+    if (shareBars.length === 0) return;
+    // Define all required share icons with their SVG
+    var shareIcons = {
+      copy: { selectors: ['.share-copy', 'button[title="Copy link"]', 'a[title="Copy link"]'], 
+        html: '&lt;a href="#" class="share-copy" title="Copy link" style="color:#666;display:flex;align-items:center;cursor:pointer;"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/&gt;&lt;/svg&gt;&lt;/a&gt;' },
+      linkedin: { selectors: ['.share-linkedin', 'a[title="LinkedIn"]'], 
+        html: '&lt;a href="#" class="share-linkedin" target="_blank" title="LinkedIn" style="color:#0a66c2!important;display:flex;align-items:center;"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/&gt;&lt;/svg&gt;&lt;/a&gt;' },
+      twitter: { selectors: ['.share-twitter', 'a[title="Twitter"]', 'a[title="Twitter/X"]', 'a[title="X"]'], 
+        html: '&lt;a href="#" class="share-twitter" target="_blank" title="X" style="color:#000!important;display:flex;align-items:center;"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/&gt;&lt;/svg&gt;&lt;/a&gt;' },
+      facebook: { selectors: ['.share-facebook', 'a[title="Facebook"]'], 
+        html: '&lt;a href="#" class="share-facebook" target="_blank" title="Facebook" style="color:#1877f2!important;display:flex;align-items:center;"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/&gt;&lt;/svg&gt;&lt;/a&gt;' },
+      whatsapp: { selectors: ['.share-whatsapp', 'a[title="WhatsApp"]'], 
+        html: '&lt;a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color:#25d366!important;display:flex;align-items:center;"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"&gt;&lt;path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/&gt;&lt;/svg&gt;&lt;/a&gt;' }
+    };
+    // Order of icons (right to left for RTL, so we add in this order)
+    var iconOrder = ['copy', 'linkedin', 'twitter', 'facebook', 'whatsapp'];
+    shareBars.forEach(function(bar) {
+      iconOrder.forEach(function(iconKey) {
+        var icon = shareIcons[iconKey];
+        var exists = icon.selectors.some(function(sel) { return bar.querySelector(sel); });
+        if (!exists) {
+          // Find the label span and insert after it
+          var label = bar.querySelector('span');
+          if (label) {
+            label.insertAdjacentHTML('afterend', icon.html);
+          } else {
+            bar.insertAdjacentHTML('afterbegin', icon.html);
+          }
+        }
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    // First normalize the share bars to ensure all icons exist
+    normalizeShareBars();
+    var url = getShareUrl();
+    var title = document.title;
+    var isDisabled = !url;
+    if (isDisabled) console.log('[Zappy] Share links disabled in preview mode - will work after publishing');
+    // WhatsApp
+    setShareHref(['.share-whatsapp', 'a[title="WhatsApp"]', 'a[title="whatsapp"]'], 
+      url ? 'https://wa.me/?text=' + encodeURIComponent(title + ' ' + url) : '#', isDisabled);
+    // Facebook
+    setShareHref(['.share-facebook', 'a[title="Facebook"]', 'a[title="facebook"]'], 
+      url ? 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) : '#', isDisabled);
+    // Twitter/X
+    setShareHref(['.share-twitter', 'a[title="Twitter"]', 'a[title="Twitter/X"]', 'a[title="X"]'], 
+      url ? 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&amp;text=' + encodeURIComponent(title) : '#', isDisabled);
+    // LinkedIn
+    setShareHref(['.share-linkedin', 'a[title="LinkedIn"]', 'a[title="linkedin"]'], 
+      url ? 'https://www.linkedin.com/shareArticle?mini=true&amp;url=' + encodeURIComponent(url) + '&amp;title=' + encodeURIComponent(title) : '#', isDisabled);
+    // Copy link button
+    ['.share-copy', 'button[title="Copy link"]', 'button[title="copy"]', 'a[title="Copy link"]'].forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        if (isDisabled) {
+          el.style.opacity = '0.5';
+          el.style.cursor = 'not-allowed';
+          el.title = 'Copy link will work after publishing';
+          el.onclick = function(e) { e.preventDefault(); };
+        } else {
+          el.onclick = function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(url).then(function() {
+              var orig = el.innerHTML;
+              el.innerHTML = '✓';
+              setTimeout(function() { el.innerHTML = orig; }, 1500);
+            });
+          };
+        }
+      });
+    });
+  });
+})();
+</script>
 <!-- i18next Multi-Language Support -->
 <script>
 (function() {
@@ -1055,6 +1168,7 @@ img[data-no-hero-position] { position: static !important; }
   const resources = {
   "he": {
     "translation": {
+      "new_p_81": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "home_h1_1": "הפלטפורמה המובילה לתכנון אירועים בישראל",
       "home_h2_2": "למה לבחור ב-OFFSCRIPT EVENTS?",
       "home_h2_3": "היתרונות שלנו",
@@ -1702,11 +1816,12 @@ img[data-no-hero-position] { position: static !important; }
       "menu_group_1766946580153_placeholder_69": "טלפון",
       "menu_group_1766946580153_placeholder_70": "אימייל",
       "menu_group_1766946580153_placeholder_71": "הודעה",
-      "new_p_81": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת"
+      "new_p_82": "מיקומים חלופיים"
     }
   },
   "en": {
     "translation": {
+      "new_p_81": "Experience your event before it happens with advanced visual simulation",
       "home_h1_1": "Israel's Leading Event Planning Platform",
       "home_h2_2": "Why Choose OFFSCRIPT EVENTS?",
       "home_h2_3": "Our Advantages",
@@ -2354,7 +2469,7 @@ img[data-no-hero-position] { position: static !important; }
       "menu_group_1766946580153_placeholder_69": "Phone",
       "menu_group_1766946580153_placeholder_70": "Email",
       "menu_group_1766946580153_placeholder_71": "Message",
-      "new_p_81": "Experience your event before it happens with advanced visual simulation"
+      "new_p_82": "LOCAITIONS ALT\n"
     }
   }
 };
@@ -2675,117 +2790,6 @@ img[data-no-hero-position] { position: static !important; }
 })();
 </script>
 
-<script id="zappy-share-script">
-(function() {
-  function getShareUrl() {
-    // Priority 1: Check for deployed site URL meta tag (set by Zappy when site is published)
-    var siteUrl = document.querySelector('meta[name="zappy-site-url"]');
-    if (siteUrl && siteUrl.content) {
-      var basePath = window.location.pathname;
-      var pageParam = new URLSearchParams(window.location.search).get('page');
-      var pagePath = pageParam || basePath;
-      if (pagePath.startsWith('/api/website/preview')) pagePath = '/';
-      return siteUrl.content.replace(/\/$/, '') + pagePath;
-    }
-    var c = document.querySelector('link[rel="canonical"]');
-    if (c && c.href && !c.href.includes('localhost') && !c.href.includes('preview')) return c.href;
-    var m = document.querySelector('meta[property="og:url"]');
-    if (m && m.content && !m.content.includes('localhost') && !m.content.includes('preview')) return m.content;
-    var isPreview = window.location.href.includes('preview') || window.location.href.includes('localhost') || window.location.href.includes('auth_token');
-    if (isPreview) return null;
-    return window.location.origin + window.location.pathname;
-  }
-  function setShareHref(selectors, href, isDisabled) {
-    selectors.forEach(function(sel) {
-      document.querySelectorAll(sel).forEach(function(el) {
-        if (isDisabled) {
-          el.style.opacity = '0.5';
-          el.style.cursor = 'not-allowed';
-          el.title = 'Share links will work after publishing';
-          el.onclick = function(e) { e.preventDefault(); };
-        } else {
-          el.href = href;
-        }
-      });
-    });
-  }
-  // Normalize share bars to ensure all 5 icons are present
-  function normalizeShareBars() {
-    var shareBars = document.querySelectorAll('.social-share-bar');
-    if (shareBars.length === 0) return;
-    // Define all required share icons with their SVG
-    var shareIcons = {
-      copy: { selectors: ['.share-copy', 'button[title="Copy link"]', 'a[title="Copy link"]'], 
-        html: '<a href="#" class="share-copy" title="Copy link" style="color:#666;display:flex;align-items:center;cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></a>' },
-      linkedin: { selectors: ['.share-linkedin', 'a[title="LinkedIn"]'], 
-        html: '<a href="#" class="share-linkedin" target="_blank" title="LinkedIn" style="color:#0a66c2!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>' },
-      twitter: { selectors: ['.share-twitter', 'a[title="Twitter"]', 'a[title="Twitter/X"]', 'a[title="X"]'], 
-        html: '<a href="#" class="share-twitter" target="_blank" title="X" style="color:#000!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>' },
-      facebook: { selectors: ['.share-facebook', 'a[title="Facebook"]'], 
-        html: '<a href="#" class="share-facebook" target="_blank" title="Facebook" style="color:#1877f2!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>' },
-      whatsapp: { selectors: ['.share-whatsapp', 'a[title="WhatsApp"]'], 
-        html: '<a href="#" class="share-whatsapp" target="_blank" title="WhatsApp" style="color:#25d366!important;display:flex;align-items:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>' }
-    };
-    // Order of icons (right to left for RTL, so we add in this order)
-    var iconOrder = ['copy', 'linkedin', 'twitter', 'facebook', 'whatsapp'];
-    shareBars.forEach(function(bar) {
-      iconOrder.forEach(function(iconKey) {
-        var icon = shareIcons[iconKey];
-        var exists = icon.selectors.some(function(sel) { return bar.querySelector(sel); });
-        if (!exists) {
-          // Find the label span and insert after it
-          var label = bar.querySelector('span');
-          if (label) {
-            label.insertAdjacentHTML('afterend', icon.html);
-          } else {
-            bar.insertAdjacentHTML('afterbegin', icon.html);
-          }
-        }
-      });
-    });
-  }
-  document.addEventListener('DOMContentLoaded', function() {
-    // First normalize the share bars to ensure all icons exist
-    normalizeShareBars();
-    var url = getShareUrl();
-    var title = document.title;
-    var isDisabled = !url;
-    if (isDisabled) console.log('[Zappy] Share links disabled in preview mode - will work after publishing');
-    // WhatsApp
-    setShareHref(['.share-whatsapp', 'a[title="WhatsApp"]', 'a[title="whatsapp"]'], 
-      url ? 'https://wa.me/?text=' + encodeURIComponent(title + ' ' + url) : '#', isDisabled);
-    // Facebook
-    setShareHref(['.share-facebook', 'a[title="Facebook"]', 'a[title="facebook"]'], 
-      url ? 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) : '#', isDisabled);
-    // Twitter/X
-    setShareHref(['.share-twitter', 'a[title="Twitter"]', 'a[title="Twitter/X"]', 'a[title="X"]'], 
-      url ? 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title) : '#', isDisabled);
-    // LinkedIn
-    setShareHref(['.share-linkedin', 'a[title="LinkedIn"]', 'a[title="linkedin"]'], 
-      url ? 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) : '#', isDisabled);
-    // Copy link button
-    ['.share-copy', 'button[title="Copy link"]', 'button[title="copy"]', 'a[title="Copy link"]'].forEach(function(sel) {
-      document.querySelectorAll(sel).forEach(function(el) {
-        if (isDisabled) {
-          el.style.opacity = '0.5';
-          el.style.cursor = 'not-allowed';
-          el.title = 'Copy link will work after publishing';
-          el.onclick = function(e) { e.preventDefault(); };
-        } else {
-          el.onclick = function(e) {
-            e.preventDefault();
-            navigator.clipboard.writeText(url).then(function() {
-              var orig = el.innerHTML;
-              el.innerHTML = '✓';
-              setTimeout(function() { el.innerHTML = orig; }, 1500);
-            });
-          };
-        }
-      });
-    });
-  });
-})();
-</script>
     <script id="zappy-mobile-submenu-script">
     (function() {
       function initMobileSubmenuToggles() {

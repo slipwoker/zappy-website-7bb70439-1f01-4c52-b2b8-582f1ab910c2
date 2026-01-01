@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>Generated Website</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="home_page_title">LOCAITIONS</title>
+  <meta name="description" content="גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS." data-i18n-content="home_meta_description">
+  <meta name="keywords" content="פלטפורמה לתכנון אירועים בישראל, הדמיה ויזואלית לאירועים, תכנון אירועים עם הדמיה, לוקיישנים לאירועים">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -16,250 +14,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-    <!-- Zappy Analytics -->
-<script>
-(function() {
-  'use strict';
-  
-  // Configuration
-  var config = {
-    websiteId: '7bb70439-1f01-4c52-b2b8-582f1ab910c2',
-    apiUrl: 'https://api.zappy5.com/api/analytics/track',
-    sessionDuration: 30 * 60 * 1000, // 30 minutes
-    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
-    trackPageViews: true,
-    trackClicks: true,
-    trackFormSubmissions: true
-  };
-  
-  // Generate or retrieve persistent visitor ID (30 days)
-  function getVisitorId() {
-    var visitorKey = 'zappy_visitor_' + config.websiteId;
-    var visitor = null;
-    
-    try {
-      visitor = localStorage.getItem(visitorKey);
-      if (visitor) {
-        var visitorData = JSON.parse(visitor);
-        var now = Date.now();
-        
-        // Check if visitor ID is still valid (30 days)
-        if (now - visitorData.created < config.visitorDuration) {
-          // Update last seen timestamp
-          visitorData.lastSeen = now;
-          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
-          return visitorData.id;
-        }
-      }
-    } catch (e) {
-      console.warn('Zappy Analytics: LocalStorage not available');
-    }
-    
-    // Generate new visitor ID
-    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    
-    try {
-      localStorage.setItem(visitorKey, JSON.stringify({
-        id: newVisitorId,
-        created: Date.now(),
-        lastSeen: Date.now()
-      }));
-    } catch (e) {
-      // Continue without local storage
-    }
-    
-    return newVisitorId;
-  }
-  
-  // Generate or retrieve session ID (30 minutes)
-  function getSessionId() {
-    var sessionKey = 'zappy_session_' + config.websiteId;
-    var session = null;
-    
-    try {
-      session = sessionStorage.getItem(sessionKey);
-      if (session) {
-        var sessionData = JSON.parse(session);
-        var now = Date.now();
-        
-        // Check if session is still valid
-        if (now - sessionData.timestamp < config.sessionDuration) {
-          // Update timestamp
-          sessionData.timestamp = now;
-          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
-          return sessionData.id;
-        }
-      }
-    } catch (e) {
-      console.warn('Zappy Analytics: SessionStorage not available');
-    }
-    
-    // Generate new session ID
-    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    
-    try {
-      sessionStorage.setItem(sessionKey, JSON.stringify({
-        id: newSessionId,
-        timestamp: Date.now()
-      }));
-    } catch (e) {
-      // Continue without session storage
-    }
-    
-    return newSessionId;
-  }
-  
-  var visitorId = getVisitorId();
-  var sessionId = getSessionId();
-  
-  // Track an event
-  function trackEvent(eventType, data) {
-    data = data || {};
-    
-    var eventData = {
-      website_id: config.websiteId,
-      event_type: eventType,
-      page_path: window.location.pathname,
-      referrer: document.referrer || 'direct',
-      visitor_id: visitorId,
-      session_id: sessionId,
-      metadata: data
-    };
-    
-    // Use sendBeacon if available (better for page unload events)
-    if (navigator.sendBeacon) {
-      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
-      navigator.sendBeacon(config.apiUrl, blob);
-    } else {
-      // Fallback to fetch
-      fetch(config.apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(eventData),
-        keepalive: true
-      }).catch(function(error) {
-        console.warn('Zappy Analytics: Failed to track event', error);
-      });
-    }
-  }
-  
-  // Track page view
-  if (config.trackPageViews) {
-    trackEvent('pageview', {
-      title: document.title,
-      url: window.location.href
-    });
-  }
-  
-  // Track clicks on important elements
-  if (config.trackClicks) {
-    document.addEventListener('click', function(e) {
-      var target = e.target;
-      
-      // Track button clicks (counted as actions)
-      if (target.tagName === 'BUTTON' || target.closest('button')) {
-        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
-        trackEvent('click', {
-          element: 'button',
-          text: button.textContent.trim().substring(0, 100),
-          id: button.id || null,
-          class: button.className || null
-        });
-      }
-      
-      // Track link clicks (navigation - not counted as actions)
-      else if (target.tagName === 'A' || target.closest('a')) {
-        var link = target.tagName === 'A' ? target : target.closest('a');
-        trackEvent('navigation', {
-          element: 'link',
-          text: link.textContent.trim().substring(0, 100),
-          href: link.href,
-          external: link.hostname !== window.location.hostname
-        });
-      }
-    }, true);
-  }
-  
-  // Track form submissions
-  if (config.trackFormSubmissions) {
-    document.addEventListener('submit', function(e) {
-      var form = e.target;
-      
-      trackEvent('form_submit', {
-        form_id: form.id || null,
-        form_name: form.name || null,
-        form_action: form.action || null,
-        form_method: form.method || 'GET'
-      });
-    }, true);
-  }
-  
-  // Track time on page (send on page unload)
-  var pageLoadTime = Date.now();
-  
-  window.addEventListener('beforeunload', function() {
-    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
-    
-    trackEvent('page_unload', {
-      time_on_page: timeOnPage,
-      page_path: window.location.pathname
-    });
-  });
-  
-  // Expose tracking function globally for custom events
-  window.zappyAnalytics = {
-    track: trackEvent,
-    getVisitorId: function() { return visitorId; },
-    getSessionId: function() { return sessionId; }
-  };
-  
-})();
-</script>
-<!-- End Zappy Analytics -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/styles.css">
-    <style id="zappy-mobile-submenu-styles">
-      @media (max-width: 768px) {
-        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; }
-        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
-        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
-        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; }
-        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
-        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
-        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
-        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
-        .mobile-submenu-toggle::after { content: '' !important; display: block !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
-        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
-        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
-        .sub-menu a { padding: 10px 0 !important; display: block !important; }
-        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; }
-      }
-      /* Desktop: show submenu on Menu Group hover */
-      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
-      /* Menu Group title styling */
-      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
-      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
-    </style>
-</head>
-<body>
-<!DOCTYPE ><html lang="he" dir="rtl"><head>
-  <meta charset="UTF-8"></meta>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-  <title data-i18n="home_page_title">LOCAITIONS</title>
-  <meta name="description" content="גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS." data-i18n-content="home_meta_description"></meta>
-  <meta name="keywords" content="פלטפורמה לתכנון אירועים בישראל, הדמיה ויזואלית לאירועים, תכנון אירועים עם הדמיה, לוקיישנים לאירועים"></meta>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></link>
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"></link>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"></link>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"></link>
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png"></link>
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png"></link>
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png"></link>
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"></link>
 <style>
 /* Zappy Attribution Header Styles */
 .zappy-header {
@@ -308,7 +62,7 @@
   opacity: 0.7;
 }</style>
     <!-- Cookie Consent -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css"></link>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
     <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
     <!-- Mickidum Accessibility Toolbar -->
     <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
@@ -782,7 +536,210 @@
         left: auto;
         right: 0;
       }
-    </style></head>
+    </style><!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '7bb70439-1f01-4c52-b2b8-582f1ab910c2',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
 <body>
 
 <!-- Zappy Attribution Header -->
@@ -791,7 +748,7 @@
     <div class="container nav-container">
       <div class="nav-brand">
         <a href="/" class="logo-link">
-          <img src="assets/business-logo.webp" alt="OFFSCRIPT EVENTS" class="logo" data-i18n-alt="home_alt_42"></img>
+          <img src="/assets/business-logo.webp" alt="OFFSCRIPT EVENTS" class="logo" data-i18n-alt="home_alt_42">
         </a>
       </div>
       
@@ -810,7 +767,7 @@
         </svg>
       </button>
       
-      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li class="nav-cta-item-mobile"><a href="/contact" data-i18n="home_nav_40" data-element-type="button" data-original-href="/contact" style="background-color: #2c2c2c !important; border-color: #2c2c2c !important; color: #ffffff !important">צור קשר</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/blog/visual-simulation" class="nav-link">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform" class="nav-link">תכנון חכם</a></li><li><a href="/blog/location-tips" class="nav-link">טיפים ללוקיישן</a></li><li><a href="/locaitions" class="nav-link">LOCAITIONS</a></li></ul></li></ul>
+      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li><a href="/blog/visual-simulation">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform">תכנון חכם</a></li><li><a href="/blog/location-tips">טיפים ללוקיישן</a></li></ul></li><li><a href="/locaitions">LOCAITIONS</a></li><li class="nav-cta-item-mobile"><a href="/contact">צור קשר</a></li><li><a href="/locaitions-pool">LOCAITIONS ALT<br></a></li></ul>
       
       
 <div class="lang-switcher" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
@@ -818,7 +775,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg>
   </button>
   <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;">
-    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt="" style="display:inline-block;vertical-align:middle;border-radius:50%;"></img> English</button>
+    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt="" style="display:inline-block;vertical-align:middle;border-radius:50%;"> English</button>
   </div>
 </div><div class="nav-cta-container">
         <li class="nav-cta-item">
@@ -856,7 +813,7 @@
             <p data-i18n="home_p_27">© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.</p>
           </div>
           <div class="footer-social"><a href="https://facebook.com/https://www.facebook.com/orencorcos/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-<a href="https://instagram.com/https://www.threads.com/@orencorcos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://instagram.com/https://www.threads.com/@orencorcos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i id="element-saved-1767211934003-n5rwqpb7sle" class="fas fa-instagram" style="color: #1a1a1a; font-size: 64px; line-height: 1;" data-element-type="icon" data-icon-type="fontawesome"></i></a>
 <a href="https://wa.me/972542911625" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display:none;"><i class="fab fa-youtube"></i></a>
 <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="display:none;"><i class="fab fa-tiktok"></i></a></div>
@@ -875,7 +832,7 @@
           </div>
         </div>
         <div class="zappy-attribution">
-          <p data-i18n="home_p_28">נוצר באמצעות&amp;nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="home_link_36">Zappy</a></p>
+          <p data-i18n="home_p_28">נוצר באמצעות&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="home_link_36">Zappy</a></p>
         </div>
       </div>
     </footer>
@@ -945,6 +902,8 @@
 
 
 
+
+
 <!-- i18next Multi-Language Support -->
 <script>
 (function() {
@@ -952,16 +911,17 @@
   const resources = {
   "he": {
     "translation": {
+      "new_p_81": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "home_h1_1": "הפלטפורמה המובילה לתכנון אירועים בישראל",
       "home_h2_2": "למה לבחור ב-OFFSCRIPT EVENTS?",
       "home_h2_3": "היתרונות שלנו",
       "home_h2_4": "איך זה עובד?",
       "home_h2_5": "מוכנים להתחיל לתכנן?",
-      "home_h3_6": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת&amp;nbsp;",
+      "home_h3_6": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת&nbsp;",
       "home_h3_7": "הדמיה ויזואלית מתקדמת",
       "home_h3_8": "לוקיישנים לאירועים מובחרים",
       "home_h3_9": "חיבור לספקים מובילים",
-      "home_p_15": "Happily created by&amp;nbsp;Zappy",
+      "home_p_15": "Happily created by&nbsp;Zappy",
       "home_p_16": "OFFSCRIPT EVENTS היא פלטפורמה לתכנון אירועים בישראל שמאפשרת לכם לראות את האירוע שלכם בעיניים שלכם עוד לפני ההשקעה הכספית. אנחנו מחברים בין לקוחות, ספקים ולוקיישנים לאירועים באמצעות טכנולוגיית הדמיה ויזואלית מתקדמת.",
       "home_p_17": "עם המערכת החדשנית שלנו, תוכלו לתכנן כל פרט באירוע - מהעיצוב ועד לתאורה, מהקישוטים ועד לסידור השולחנות. תכנון אירועים עם הדמיה מאפשר לכם לקבל החלטות מושכלות ולהימנע מהפתעות לא נעימות.",
       "home_p_18": "ראו את האירוע שלכם בתלת מימד עוד לפני שהוא מתרחש. הדמיה ויזואלית לאירועים שלנו מאפשרת לכם לחוות כל פרט.",
@@ -974,7 +934,7 @@
       "home_p_25": "התחברו לספקים המובילים דרך הפלטפורמה שלנו והפכו את החזון למציאות.",
       "home_p_26": "הצטרפו לאלפי לקוחות מרוצים שבחרו בפלטפורמה לתכנון אירועים בישראל המתקדמת ביותר",
       "home_p_27": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "home_p_28": "נוצר באמצעות&amp;nbsp;Zappy",
+      "home_p_28": "נוצר באמצעות&nbsp;Zappy",
       "about_h1_1": "הסיפור שלנו",
       "about_h2_2": "החזון שהוליד מהפכה בתכנון אירועים",
       "about_h2_3": "המשימה והערכים שלנו",
@@ -984,7 +944,7 @@
       "about_h2_7": "הצטרפו למהפכה",
       "about_h3_8": "איך נולדה הפלטפורמה המובילה לתכנון אירועים בישראל",
       "about_h3_9": "חדשנות",
-      "about_p_15": "Happily created by&amp;nbsp;Zappy",
+      "about_p_15": "Happily created by&nbsp;Zappy",
       "about_p_16": "OFFSCRIPT EVENTS נולדה מתוך צורך אמיתי שזיהינו בשוק תכנון האירועים הישראלי. שוב ושוב ראינו לקוחות שהשקיעו סכומי כסף גדולים באירועים, רק כדי לגלות שהתוצאה הסופית לא התאימה לציפיות שלהם. הבעיה המרכזית הייתה פשוטה אך מורכבת - אנשים לא יכלו לראות את האירוע שלהם לפני שהוא קורה.",
       "about_p_17": "החלטנו לשנות את המצב הזה. פיתחנו פלטפורמה לתכנון אירועים בישראל שמשלבת טכנולוגיית הדמיה ויזואלית מתקדמת עם מאגר מקיף של ספקים ולוקיישנים לאירועים. המטרה שלנו הייתה ברורה - לאפשר לכל אדם לראות בדיוק איך האירוע שלו ייראה, עוד לפני שהוא מתחייב כלכלית.",
       "about_p_18": "הדרך לא הייתה קלה. בנינו צוות של מפתחים, מעצבים ומומחי אירועים שעבדו יחד כדי ליצור כלי שהוא גם טכנולוגי וגם ידידותי למשתמש. השקענו שנים במחקר ופיתוח, בחנו עשרות טכנולוגיות שונות, ושיתפנו פעולה עם מאות ספקים ולוקיישנים ברחבי הארץ.",
@@ -1008,7 +968,7 @@
       "about_p_36": "אבל מעל לכל, אנחנו ממשיכים להתמקד במה שחשוב באמת - לעזור לאנשים ליצור אירועים בלתי נשכחים. כל התכונות והטכנולוגיות החדשות שאנחנו מפתחים נועדו לשרת את המטרה הזו. אנחנו מאמינים שכל אדם ראוי לאירוע מושלם, ואנחנו כאן כדי לעזור להפוך את זה למציאות.",
       "about_p_37": "בין אם אתם מתכננים אירוע, ספק שירותים, או בעלי לוקיישן - אנחנו רוצים שתהיו חלק מהקהילה שלנו. יחד נמשיך לשנות את תעשיית האירועים ולהפוך חלומות למציאות.",
       "about_p_38": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "about_p_39": "נוצר באמצעות&amp;nbsp;Zappy",
+      "about_p_39": "נוצר באמצעות&nbsp;Zappy",
       "home_h3_10": "תכנון בטוח ומדויק",
       "home_h3_11": "בחרו לוקיישן",
       "home_h3_12": "תכננו את האירוע",
@@ -1034,7 +994,7 @@
       "terms_p_23": "תנאי שימוש אלה כפופים לחוקי מדינת ישראל. כל סכסוך יידון בבתי המשפט המוסמכים בישראל, \n            תוך מתן עדיפות לבוררות או גישור במידת האפשר.",
       "terms_p_24": "לשאלות או הבהרות בנוגע לתנאי השימוש:",
       "terms_p_25": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "terms_p_26": "נוצר באמצעות&amp;nbsp;Zappy",
+      "terms_p_26": "נוצר באמצעות&nbsp;Zappy",
       "about_h3_10": "מחויבות ללקוח",
       "about_h3_11": "שיתוף פעולה",
       "about_h3_12": "שקיפות",
@@ -1090,7 +1050,7 @@
       "contact_h3_7": "טלפון",
       "contact_h3_8": "אימייל",
       "contact_h3_9": "כתובת",
-      "contact_p_20": "Happily created by&amp;nbsp;Zappy",
+      "contact_p_20": "Happily created by&nbsp;Zappy",
       "contact_p_21": "מלאו את הטופס ונחזור אליכם בהקדם",
       "contact_p_22": "offscript.event@gmail.com",
       "contact_p_23": "שטינמץ מקס 19, נהריה, 2238445, ישראל",
@@ -1106,7 +1066,7 @@
       "contact_p_33": "לאחר שתכננתם את האירוע, המערכת תציע לכם ספקים מתאימים על בסיס הצרכים שלכם. תוכלו לראות המלצות, להשוות מחירים, ולשלוח בקשות הצעת מחיר ישירות דרך הפלטפורמה. כל התקשורת והתיאום מתנהלים במקום אחד נוח.",
       "contact_p_34": "אין בעיה! זה בדיוק היתרון של הדמיה ויזואלית לאירועים - תוכלו לשנות ולהתאים את התכנון כמה שתרצו עד שתהיו מרוצים לחלוטין. המערכת שומרת את כל הגרסאות כך שתוכלו תמיד לחזור לרעיון קודם אם תרצו.",
       "contact_p_35": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "contact_p_36": "נוצר באמצעות&amp;nbsp;Zappy",
+      "contact_p_36": "נוצר באמצעות&nbsp;Zappy",
       "home_link_29": "Zappy",
       "home_link_30": "גלו את השירותים שלנו",
       "home_link_31": "התחילו לתכנן",
@@ -1135,7 +1095,7 @@
       "privacy_p_18": "לשאלות או בקשות בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו:",
       "privacy_p_19": "רשם מאגרי המידע: לתלונות ניתן לפנות לרשם מאגרי המידע במשרד המשפטים",
       "privacy_p_20": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "privacy_p_21": "נוצר באמצעות&amp;nbsp;Zappy",
+      "privacy_p_21": "נוצר באמצעות&nbsp;Zappy",
       "terms_alt_60": "OFFSCRIPT EVENTS",
       "terms_nav_55": "שירותים",
       "terms_nav_56": "אודות",
@@ -1188,7 +1148,7 @@
       "services_h2_7": "ניהול לוחות זמנים ותיאום",
       "services_h2_8": "תבניות עיצוב מותאמות אישית",
       "services_h2_9": "סיור וירטואלי באירוע",
-      "services_p_14": "Happily created by&amp;nbsp;Zappy",
+      "services_p_14": "Happily created by&nbsp;Zappy",
       "services_p_15": "OFFSCRIPT EVENTS מציעה מגוון שירותים מקיפים שמשלבים טכנולוגיה מתקדמת עם מומחיות בתכנון אירועים. הפלטפורמה לתכנון אירועים בישראל שלנו מספקת לכם את כל הכלים הנחוצים כדי להפוך את האירוע שלכם למציאות - מהדמיה ויזואלית לאירועים ועד לחיבור עם הספקים המובילים בתחום.",
       "services_p_16": "אנחנו מבינים שתכנון אירוע הוא משימה מורכבת הדורשת תשומת לב לפרטים הקטנים ביותר. לכן פיתחנו מערכת ייחודית שמאפשרת לכם לראות בדיוק איך האירוע שלכם ייראה עוד לפני שאתם מתחייבים כלכלית. תכנון אירועים עם הדמיה מעניק לכם שקט נפשי ובטחון שהכל יהיה בדיוק כמו שדמיינתם.",
       "services_p_17": "הדמיה ויזואלית לאירועים היא הלב של השירות שלנו. המערכת המתקדמת שלנו מאפשרת לכם ליצור הדמיה מדויקת ומפורטת של האירוע שלכם בתלת מימד. תוכלו לראות איך כל פרט - מהקישוטים ועד לתאורה, מסידור השולחנות ועד לבמה - ייראה במציאות.",
@@ -1213,7 +1173,7 @@
       "services_p_36": "תוכלו לראות סטטיסטיקות מפורטות על האירוע, לקבל דירוגים של הספקים, ולשתף את החוויה שלכם עם משתמשים אחרים בפלטפורמה. המשוב הזה עוזר לנו לשפר ולהתאים את השירות שלנו, ומאפשר לכם ללמוד מהניסיון לקראת אירועים עתידיים. תכנון אירועים עם הדמיה ומעקב מקיף הוא המפתח להצלחה מתמשכת.",
       "services_p_37": "צרו קשר עוד היום וגלו איך הפלטפורמה שלנו יכולה להפוך את האירוע שלכם למציאות",
       "services_p_38": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "services_p_39": "נוצר באמצעות&amp;nbsp;Zappy",
+      "services_p_39": "נוצר באמצעות&nbsp;Zappy",
       "terms_link_27": "info@company.com",
       "terms_link_28": "מדיניות פרטיות",
       "terms_link_29": "נגישות",
@@ -1342,9 +1302,9 @@
       "accessibility_p_15": "זמני מענה: נענה לפניות בנושא נגישות תוך 3 ימי עסקים ונפעל לפתרון תוך 10 ימי עסקים.",
       "accessibility_p_16": "תלונות: ניתן להגיש תלונה למשרד המשפטים - הנציבות לשוויון זכויות לאנשים עם מוגבלות",
       "accessibility_p_17": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
-      "accessibility_p_18": "נוצר באמצעות&amp;nbsp;Zappy",
-      "concept_events_p_6": "קונספט :&amp;nbsp; Industrial Glow\n\nקונספט :&amp;nbsp; Future Gala&amp;nbsp;\n\nעיצוב חללים תעשייתיים באמצעות טכנולוגיית הקרנה מתקדמת ותאורה חכמה.\"\n\nקונספט : Future Gala תכנון אירועי יוקרה טכנולוגיים עם מסכי 360 מעלות ומייצגי אור.\"",
-      "concept_events_p_7": "Happily created by&amp;nbsp;Zappy",
+      "accessibility_p_18": "נוצר באמצעות&nbsp;Zappy",
+      "concept_events_p_6": "קונספט :&nbsp; Industrial Glow\n\nקונספט :&nbsp; Future Gala&nbsp;\n\nעיצוב חללים תעשייתיים באמצעות טכנולוגיית הקרנה מתקדמת ותאורה חכמה.\"\n\nקונספט : Future Gala תכנון אירועי יוקרה טכנולוגיים עם מסכי 360 מעלות ומייצגי אור.\"",
+      "concept_events_p_7": "Happily created by&nbsp;Zappy",
       "concept_events_p_8": "הצטרפו לאלפי לקוחות מרוצים שבחרו בפלטפורמה לתכנון אירועים בישראל המתקדמת ביותר",
       "concept_events_p_9": "© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.",
       "contact_page_title": "צרו קשר - התחילו לתכנן את האירוע המושלם — OFFSCRIPT EVENTS",
@@ -1399,7 +1359,7 @@
       "concept_events_h2_3": "מוכנים להתחיל לתכנן?",
       "concept_events_h2_4": "העתיד של האירועים כבר כאן !",
       "concept_events_h3_5": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
-      "concept_events_p_10": "נוצר באמצעות&amp;nbsp;Zappy",
+      "concept_events_p_10": "נוצר באמצעות&nbsp;Zappy",
       "legal_privacy_li_22": "מידע אישי: שם, כתובת אימייל, מספר טלפון וכתובת",
       "legal_privacy_li_23": "מידע טכני: כתובת IP, סוג דפדפן, מערכת הפעלה ונתוני שימוש באתר",
       "legal_privacy_li_24": "עוגיות: מידע הנשמר במחשבכם לשיפור חוויית השימוש",
@@ -1458,7 +1418,7 @@
       "concept_events_link_17": "נגישות",
       "concept_events_link_18": "תנאי שימוש",
       "concept_events_link_19": "Zappy",
-      "concept_events_span_11": "קונספט :&amp;nbsp; Future Gala&amp;nbsp;\n\nעיצוב חללים תעשייתיים באמצעות טכנולוגיית הקרנה מתקדמת ותאורה חכמה.\"\n\nקונספט : Future Gala תכנון אירועי יוקרה טכנולוגיים עם מסכי 360 מעלות ומייצגי אור.\"",
+      "concept_events_span_11": "קונספט :&nbsp; Future Gala&nbsp;\n\nעיצוב חללים תעשייתיים באמצעות טכנולוגיית הקרנה מתקדמת ותאורה חכמה.\"\n\nקונספט : Future Gala תכנון אירועי יוקרה טכנולוגיים עם מסכי 360 מעלות ומייצגי אור.\"",
       "contact_placeholder_55": "הכניסו את שמכם המלא",
       "contact_placeholder_56": "your@email.com",
       "contact_placeholder_57": "05X-XXXXXXX",
@@ -1544,7 +1504,7 @@
       "menu_group_1766946580153_p_41": "רחוב הרצל 123, תל אביב",
       "menu_group_1766946580153_p_42": "א'-ה': 9:00-18:00",
       "menu_group_1766946580153_p_43": "מומחה לכירורגיה פלסטית ואסתטית",
-      "menu_group_1766946580153_p_44": "&amp;copy; 2024 דר' אלכס לוין. כל הזכויות שמורות.",
+      "menu_group_1766946580153_p_44": "&copy; 2024 דר' אלכס לוין. כל הזכויות שמורות.",
       "accessibility_meta_description": "הצהרת הנגישות שלנו - מחויבותנו לנגישות דיגיטלית",
       "legal_accessibility_page_title": "הצהרת נגישות - OFFSCRIPT EVENTS",
       "menu_group_1766946580153_h3_10": "ניתוחי חזה",
@@ -1599,21 +1559,22 @@
       "menu_group_1766946580153_placeholder_69": "טלפון",
       "menu_group_1766946580153_placeholder_70": "אימייל",
       "menu_group_1766946580153_placeholder_71": "הודעה",
-      "new_p_81": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת"
+      "new_p_82": "מיקומים חלופיים"
     }
   },
   "en": {
     "translation": {
+      "new_p_81": "Experience your event before it happens with advanced visual simulation",
       "home_h1_1": "Israel's Leading Event Planning Platform",
       "home_h2_2": "Why Choose OFFSCRIPT EVENTS?",
       "home_h2_3": "Our Advantages",
       "home_h2_4": "How Does It Work?",
       "home_h2_5": "Ready to Start Planning?",
-      "home_h3_6": "Experience your event before it happens with advanced visual simulation&amp;nbsp;",
+      "home_h3_6": "Experience your event before it happens with advanced visual simulation&nbsp;",
       "home_h3_7": "Advanced Visual Simulation",
       "home_h3_8": "Premium Event Venues",
       "home_h3_9": "Connection to Leading Suppliers",
-      "home_p_15": "Happily created by&amp;nbsp;Zappy",
+      "home_p_15": "Happily created by&nbsp;Zappy",
       "home_p_16": "OFFSCRIPT EVENTS is an event planning platform in Israel that allows you to see your event through your own eyes before making any financial investment. We connect clients, suppliers, and event venues through advanced visual simulation technology.",
       "home_p_17": "With our innovative system, you can plan every detail of your event - from design to lighting, from decorations to table arrangements. Event planning with simulation allows you to make informed decisions and avoid unpleasant surprises.",
       "home_p_18": "See your event in 3D before it happens. Our visual event simulation allows you to experience every detail.",
@@ -1626,7 +1587,7 @@
       "home_p_25": "Connect with leading suppliers through our platform and turn your vision into reality.",
       "home_p_26": "Join thousands of satisfied customers who chose Israel's most advanced event planning platform",
       "home_p_27": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "home_p_28": "Created with&amp;nbsp;Zappy",
+      "home_p_28": "Created with&nbsp;Zappy",
       "about_h1_1": "Our Story",
       "about_h2_2": "The Vision That Sparked a Revolution in Event Planning",
       "about_h2_3": "Our Mission and Values",
@@ -1636,7 +1597,7 @@
       "about_h2_7": "Join the Revolution",
       "about_h3_8": "How Israel's Leading Event Planning Platform Was Born",
       "about_h3_9": "Innovation",
-      "about_p_15": "Happily created by&amp;nbsp;Zappy",
+      "about_p_15": "Happily created by&nbsp;Zappy",
       "about_p_16": "OFFSCRIPT EVENTS was born from a real need we identified in the Israeli event planning market. Time and again we saw clients who invested large sums of money in events, only to discover that the final result didn't match their expectations. The main problem was simple yet complex - people couldn't see their event before it happened.",
       "about_p_17": "We decided to change this situation. We developed an event planning platform in Israel that combines advanced visual visualization technology with a comprehensive database of event vendors and locations. Our goal was clear - to enable every person to see exactly how their event will look, even before they commit financially.",
       "about_p_18": "The journey wasn't easy. We built a team of developers, designers and event experts who worked together to create a tool that is both technological and user-friendly. We invested years in research and development, tested dozens of different technologies, and collaborated with hundreds of vendors and locations across the country.",
@@ -1660,7 +1621,7 @@
       "about_p_36": "But above all, we continue to focus on what really matters - helping people create unforgettable events. All the new features and technologies we're developing are designed to serve this purpose. We believe every person deserves a perfect event, and we're here to help make that a reality.",
       "about_p_37": "Whether you're planning an event, a service provider, or a location owner - we want you to be part of our community. Together we'll continue to change the events industry and turn dreams into reality.",
       "about_p_38": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "about_p_39": "Created using&amp;nbsp;Zappy",
+      "about_p_39": "Created using&nbsp;Zappy",
       "home_h3_10": "Safe and Accurate Planning",
       "home_h3_11": "Choose a Venue",
       "home_h3_12": "Plan Your Event",
@@ -1686,7 +1647,7 @@
       "terms_p_23": "These terms of use are subject to the laws of the State of Israel. Any dispute will be heard in the competent courts in Israel, with preference given to arbitration or mediation where possible.",
       "terms_p_24": "For questions or clarifications regarding the terms of use:",
       "terms_p_25": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "terms_p_26": "Created with&amp;nbsp;Zappy",
+      "terms_p_26": "Created with&nbsp;Zappy",
       "about_h3_10": "Customer Commitment",
       "about_h3_11": "Collaboration",
       "about_h3_12": "Transparency",
@@ -1742,7 +1703,7 @@
       "contact_h3_7": "Phone",
       "contact_h3_8": "Email",
       "contact_h3_9": "Address",
-      "contact_p_20": "Happily created by&amp;nbsp;Zappy",
+      "contact_p_20": "Happily created by&nbsp;Zappy",
       "contact_p_21": "Fill out the form and we'll get back to you soon",
       "contact_p_22": "offscript.event@gmail.com",
       "contact_p_23": "19 Max Steinmetz St., Nahariya, 2238445, Israel",
@@ -1758,7 +1719,7 @@
       "contact_p_33": "After you've planned your event, the system will suggest suitable vendors based on your needs. You can see recommendations, compare prices, and send quote requests directly through the platform. All communication and coordination are managed in one convenient place.",
       "contact_p_34": "No problem! That's exactly the advantage of visual event simulation - you can change and adjust the planning as much as you want until you're completely satisfied. The system saves all versions so you can always return to a previous idea if you wish.",
       "contact_p_35": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "contact_p_36": "Created with&amp;nbsp;Zappy",
+      "contact_p_36": "Created with&nbsp;Zappy",
       "home_link_29": "Zappy",
       "home_link_30": "Discover Our Services",
       "home_link_31": "Start Planning",
@@ -1787,7 +1748,7 @@
       "privacy_p_18": "For questions or requests regarding this privacy policy, you can contact us:",
       "privacy_p_19": "Database Registrar: For complaints, you can contact the Database Registrar at the Ministry of Justice",
       "privacy_p_20": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "privacy_p_21": "Created with&amp;nbsp;Zappy",
+      "privacy_p_21": "Created with&nbsp;Zappy",
       "terms_alt_60": "OFFSCRIPT EVENTS",
       "terms_nav_55": "Services",
       "terms_nav_56": "About",
@@ -1840,7 +1801,7 @@
       "services_h2_7": "Schedule Management and Coordination",
       "services_h2_8": "Custom Design Templates",
       "services_h2_9": "Virtual Event Tour",
-      "services_p_14": "Happily created by&amp;nbsp;Zappy",
+      "services_p_14": "Happily created by&nbsp;Zappy",
       "services_p_15": "OFFSCRIPT EVENTS offers a comprehensive range of services that combine advanced technology with event planning expertise. Our event planning platform in Israel provides you with all the necessary tools to turn your event into reality - from visual event simulation to connecting with leading suppliers in the field.",
       "services_p_16": "We understand that event planning is a complex task that requires attention to the smallest details. That's why we developed a unique system that allows you to see exactly how your event will look before you make any financial commitments. Event planning with simulation gives you peace of mind and confidence that everything will be exactly as you imagined.",
       "services_p_17": "Visual event simulation is the heart of our service. Our advanced system allows you to create an accurate and detailed 3D simulation of your event. You'll be able to see how every detail - from decorations to lighting, from table arrangements to the stage - will look in reality.",
@@ -1865,7 +1826,7 @@
       "services_p_36": "You can view detailed event statistics, receive supplier ratings, and share your experience with other platform users. This feedback helps us improve and adapt our service, and allows you to learn from the experience for future events. Event planning with simulation and comprehensive follow-up is the key to continued success.",
       "services_p_37": "Contact us today and discover how our platform can turn your event into reality",
       "services_p_38": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "services_p_39": "Created with&amp;nbsp;Zappy",
+      "services_p_39": "Created with&nbsp;Zappy",
       "terms_link_27": "info@company.com",
       "terms_link_28": "Privacy Policy",
       "terms_link_29": "Accessibility",
@@ -1994,7 +1955,7 @@
       "accessibility_p_15": "Response times: We respond to accessibility inquiries within 3 business days and work toward resolution within 10 business days.",
       "accessibility_p_16": "Complaints: You can file a complaint with the Ministry of Justice - Commission for Equal Rights of Persons with Disabilities",
       "accessibility_p_17": "© 2025 OFFSCRIPT EVENTS. All rights reserved.",
-      "accessibility_p_18": "Created using&amp;nbsp;Zappy",
+      "accessibility_p_18": "Created using&nbsp;Zappy",
       "concept_events_p_6": "Concept: Industrial Glow\n\nConcept: Future Gala\n\nDesigning industrial spaces using advanced projection technology and smart lighting.\n\nConcept: Future Gala - Planning luxury technological events with 360-degree screens and light displays.",
       "concept_events_p_7": "Happily created by Zappy",
       "concept_events_p_8": "Join thousands of satisfied customers who chose Israel's most advanced event planning platform",
@@ -2196,7 +2157,7 @@
       "menu_group_1766946580153_p_41": "123 Herzl Street, Tel Aviv",
       "menu_group_1766946580153_p_42": "Sun-Thu: 9:00-18:00",
       "menu_group_1766946580153_p_43": "Specialist in plastic and aesthetic surgery",
-      "menu_group_1766946580153_p_44": "&amp;copy; 2024 Dr. Alex Levin. All rights reserved.",
+      "menu_group_1766946580153_p_44": "&copy; 2024 Dr. Alex Levin. All rights reserved.",
       "accessibility_meta_description": "Our accessibility statement - our commitment to digital accessibility",
       "legal_accessibility_page_title": "Accessibility Statement - OFFSCRIPT EVENTS",
       "menu_group_1766946580153_h3_10": "Breast Surgery",
@@ -2251,7 +2212,7 @@
       "menu_group_1766946580153_placeholder_69": "Phone",
       "menu_group_1766946580153_placeholder_70": "Email",
       "menu_group_1766946580153_placeholder_71": "Message",
-      "new_p_81": "Experience your event before it happens with advanced visual simulation"
+      "new_p_82": "LOCAITIONS ALT\n"
     }
   }
 };
@@ -2263,13 +2224,13 @@
   const availableLanguages = ["he","en"];
   
   // Language display info with SVG flag images for cross-platform compatibility
-  const languageInfo = {"he":{"name":"Hebrew","nativeName":"עברית","flag":"🇮🇱","flagIcon":"circle-flags:il","dir":"rtl","flagImg":"&lt;img src=\"https://api.iconify.design/circle-flags/il.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" /&gt;"},"en":{"name":"English","nativeName":"English","flag":"🇺🇸","flagIcon":"circle-flags:us","dir":"ltr","flagImg":"&lt;img src=\"https://api.iconify.design/circle-flags/us.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" /&gt;"}};
+  const languageInfo = {"he":{"name":"Hebrew","nativeName":"עברית","flag":"🇮🇱","flagIcon":"circle-flags:il","dir":"rtl","flagImg":"<img src=\"https://api.iconify.design/circle-flags/il.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"},"en":{"name":"English","nativeName":"English","flag":"🇺🇸","flagIcon":"circle-flags:us","dir":"ltr","flagImg":"<img src=\"https://api.iconify.design/circle-flags/us.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"}};
   
   // Detect stored language preference - only use stored value, not browser language
   // This ensures the site respects its original design (e.g., RTL Hebrew site stays RTL by default)
   function detectLanguage() {
     const stored = localStorage.getItem('zappy_lang');
-    if (stored &amp;&amp; availableLanguages.includes(stored)) return stored;
+    if (stored && availableLanguages.includes(stored)) return stored;
     
     // Always default to the site's default language, not browser language
     // This prevents breaking the original site layout on first visit
@@ -2282,12 +2243,12 @@
     resources: resources,
     t: function(key) {
       const langResources = this.resources[this.language];
-      if (langResources &amp;&amp; langResources.translation &amp;&amp; langResources.translation[key]) {
+      if (langResources && langResources.translation && langResources.translation[key]) {
         return langResources.translation[key];
       }
       // Fallback to default language
       const fallbackResources = this.resources['he'];
-      if (fallbackResources &amp;&amp; fallbackResources.translation &amp;&amp; fallbackResources.translation[key]) {
+      if (fallbackResources && fallbackResources.translation && fallbackResources.translation[key]) {
         return fallbackResources.translation[key];
       }
       return key;
@@ -2313,11 +2274,11 @@
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');
       var translation = zappyI18n.t(key);
-      if (translation &amp;&amp; translation !== key) {
-        // Check if translation contains newlines that need to be rendered as &lt;br&gt;
+      if (translation && translation !== key) {
+        // Check if translation contains newlines that need to be rendered as <br>
         if (translation.indexOf(newlineChar) !== -1) {
-          // Convert newlines to &lt;br&gt; and use innerHTML to preserve HTML formatting
-          el.innerHTML = translation.split(newlineChar).join('&lt;br&gt;');
+          // Convert newlines to <br> and use innerHTML to preserve HTML formatting
+          el.innerHTML = translation.split(newlineChar).join('<br>');
         } else {
           // No newlines, use textContent for safety
           el.textContent = translation;
@@ -2329,7 +2290,7 @@
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-placeholder');
       const translation = zappyI18n.t(key);
-      if (translation &amp;&amp; translation !== key) {
+      if (translation && translation !== key) {
         el.setAttribute('placeholder', translation);
       }
     });
@@ -2338,7 +2299,7 @@
     document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-alt');
       const translation = zappyI18n.t(key);
-      if (translation &amp;&amp; translation !== key) {
+      if (translation && translation !== key) {
         el.setAttribute('alt', translation);
       }
     });
@@ -2347,7 +2308,7 @@
     document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-title');
       const translation = zappyI18n.t(key);
-      if (translation &amp;&amp; translation !== key) {
+      if (translation && translation !== key) {
         el.setAttribute('title', translation);
       }
     });
@@ -2356,7 +2317,7 @@
     document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
       const key = el.getAttribute('data-i18n-content');
       const translation = zappyI18n.t(key);
-      if (translation &amp;&amp; translation !== key) {
+      if (translation && translation !== key) {
         el.setAttribute('content', translation);
       }
     });
@@ -2366,7 +2327,7 @@
     if (titleEl) {
       const key = titleEl.getAttribute('data-i18n');
       const translation = zappyI18n.t(key);
-      if (translation &amp;&amp; translation !== key) {
+      if (translation && translation !== key) {
         document.title = translation;
       }
     }
@@ -2410,7 +2371,7 @@
       el.style.direction = newDir;
       el.style.justifyContent = 'flex-start';
       // Only set flex-direction on desktop (check viewport width)
-      if (window.innerWidth &gt;= 768) {
+      if (window.innerWidth >= 768) {
         el.style.flexDirection = 'row';
       }
     });
@@ -2422,13 +2383,13 @@
       el.style.marginLeft = '0';
       el.style.marginRight = '0';
       // Only set flex-direction on desktop
-      if (window.innerWidth &gt;= 768) {
+      if (window.innerWidth >= 768) {
         el.style.flexDirection = 'row';
       }
     });
     
     // Reset all nav link margins to keep them near logo
-    document.querySelectorAll('header &gt; a, nav &gt; a, .nav-menu &gt; a, .nav-links &gt; a, nav ul li, header ul li').forEach(function(el) {
+    document.querySelectorAll('header > a, nav > a, .nav-menu > a, .nav-links > a, nav ul li, header ul li').forEach(function(el) {
       // Skip CTA buttons - they need their auto margin
       if (el.classList.contains('btn') || el.classList.contains('button') || el.classList.contains('cta') || 
           el.className.includes('btn-') || el.className.includes('button-')) {
@@ -2463,7 +2424,7 @@
     });
     
     // Globe icon SVG for language switcher button (minimal design, no chevron)
-    const globeIconSvg = '&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"&gt;&lt;path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/&gt;&lt;/svg&gt;';
+    const globeIconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>';
     
     // Update language switcher display - just the globe icon, no arrow
     const currentLangEl = document.querySelector('.lang-switcher-current');
@@ -2478,7 +2439,7 @@
         .map(function(lang) {
           const info = languageInfo[lang] || { flag: '🌐', flagImg: '🌐', nativeName: lang };
           // Use flagImg (SVG) for cross-platform compatibility, fallback to emoji flag
-          return '&lt;button class="lang-option" data-lang="' + lang + '" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"&gt;' + (info.flagImg || info.flag) + ' ' + info.nativeName + '&lt;/button&gt;';
+          return '<button class="lang-option" data-lang="' + lang + '" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;">' + (info.flagImg || info.flag) + ' ' + info.nativeName + '</button>';
         })
         .join('');
       
@@ -2571,27 +2532,40 @@
   }
 })();
 </script>
-</body></html>
-    <script src="/script.js"></script>
+
     <script id="zappy-mobile-submenu-script">
     (function() {
       function initMobileSubmenuToggles() {
-        if (window.innerWidth > 768) { document.querySelectorAll('.mobile-submenu-toggle').forEach(function(b){b.remove();}); document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(m){m.classList.remove('mobile-expanded');}); return; }
-        document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)').forEach(function(li) {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
           if (li.querySelector('.mobile-submenu-toggle')) return;
-          var sm = li.querySelector('.sub-menu'), pl = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
-          if (!sm || !pl) return;
-          var tb = document.createElement('button'); tb.className = 'mobile-submenu-toggle'; tb.setAttribute('aria-label', 'Toggle submenu'); tb.setAttribute('type', 'button');
-          pl.insertAdjacentElement('afterend', tb);
-          tb.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation();
-            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(m) { if (m !== sm) { m.classList.remove('mobile-expanded'); var t = m.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }});
-            sm.classList.toggle('mobile-expanded'); tb.classList.toggle('expanded');
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
           });
         });
       }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); } else { initMobileSubmenuToggles(); }
-      window.addEventListener('resize', function() { clearTimeout(window._mrt); window._mrt = setTimeout(initMobileSubmenuToggles, 250); });
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
     })();
     </script>
-</body>
-</html>
+    <script src="/script.js"></script>
+</body></html>
