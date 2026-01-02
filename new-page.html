@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="he" dir="rtl"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="services_page_title">שירותי הדמיה ויזואלית לאירועים מקצועיים — OFFSCRIPT EVENTS</title>
-  <meta name="description" content="גלו את מגוון השירותים שלנו: הדמיה ויזואלית לאירועים, חיבור לספקים מובילים, לוקיישנים לאירועים ותכנון מקצועי.">
-  <meta name="keywords" content="הדמיה ויזואלית לאירועים, תכנון אירועים עם הדמיה, לוקיישנים לאירועים, פלטפורמה לתכנון אירועים בישראל">
+  <title data-i18n="home_page_title">New Page</title>
+  <meta name="description" content="גלו את פלטפורמה לתכנון אירועים בישראל עם הדמיה ויזואלית מתקדמת. תכננו את האירוע המושלם שלכם עם OFFSCRIPT EVENTS." data-i18n-content="home_meta_description">
+  <meta name="keywords" content="פלטפורמה לתכנון אירועים בישראל, הדמיה ויזואלית לאירועים, תכנון אירועים עם הדמיה, לוקיישנים לאירועים">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicons -->
@@ -536,19 +536,219 @@
         left: auto;
         right: 0;
       }
-    </style>    <link rel="stylesheet" href="/styles.css">
+    </style><!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '7bb70439-1f01-4c52-b2b8-582f1ab910c2',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
 <!-- Zappy Attribution Header -->
-<div id="zappy-attribution-header" class="zappy-header" style="display: none;">
-  <p data-i18n="services_p_14">Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link" data-i18n="services_link_40">Zappy</a></p>
-</div>
+
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <div class="nav-brand">
         <a href="/" class="logo-link">
-          <img src="/assets/offscript-events-logo-1767356123775-byp9dl.webp?v=1767356124974-u9zbja" alt="OFFSCRIPT EVENTS" class="logo" data-i18n-alt="services_alt_51">
+          <img src="/assets/offscript-events-logo-1767356123775-byp9dl.webp?v=1767356124974-u9zbja" alt="OFFSCRIPT EVENTS" class="logo" data-i18n-alt="home_alt_42">
         </a>
       </div>
       
@@ -567,7 +767,7 @@
         </svg>
       </button>
       
-      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="services_nav_46">שירותים</a></li><li><a href="/about" data-i18n="services_nav_47">אודות</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/concept-events" data-i18n="services_nav_48">אירועי קונספט</a></li><li><a href="/blog/visual-simulation">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform">תכנון חכם</a></li><li><a href="/blog/location-tips">טיפים ללוקיישן</a></li></ul></li><li><a href="/locaitions">LOCAITIONS</a></li><li class="nav-cta-item-mobile"><a href="/contact">צור קשר</a></li><li><a href="/locaitions-pool">LOCAITIONS ALT<br></a></li><li><a href="/new-page" class="">New Page</a></li></ul>
+      <ul class="nav-menu" id="navMenu"><li><a href="/services" data-i18n="home_nav_37">שירותים</a></li><li><a href="/about" data-i18n="home_nav_38">אודות</a></li><li><a href="/culinary-menu" class="nav-link">תפריט והסעדה</a></li><li><a href="/blog" class="nav-link">מגזין</a><ul class="sub-menu"><li><a href="/concept-events" data-i18n="home_nav_39">אירועי קונספט</a></li><li><a href="/blog/visual-simulation">הדמיה ויזואלית</a></li><li><a href="/blog/planning-platform">תכנון חכם</a></li><li><a href="/blog/location-tips">טיפים ללוקיישן</a></li></ul></li><li><a href="/locaitions">LOCAITIONS</a></li><li class="nav-cta-item-mobile"><a href="/contact">צור קשר</a></li><li><a href="/locaitions-pool">LOCAITIONS ALT<br><br></a></li><li><a href="/new-page" class="">New Page</a></li></ul>
       
       
 <div class="lang-switcher" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
@@ -579,200 +779,30 @@
   </div>
 </div><div class="nav-cta-container">
         <li class="nav-cta-item">
-          <a href="/contact" class="nav-cta-btn" data-i18n="services_nav_50" data-original-href="/contact" style="background-color: #2c2c2c !important; border-color: #2c2c2c !important; color: #ffffff !important">צור קשר</a>
+          <a href="/contact" class="nav-cta-btn" data-i18n="home_nav_41" data-original-href="/contact" style="background-color: #2c2c2c !important; border-color: #2c2c2c !important; color: #ffffff !important">צור קשר</a>
         </li>
       </div>
     </div>
-  </nav>
+  </nav><main>
+      <section id="layout-1767299995247" class="py-16 md:py-24 bg-white layout-section zappy-removable" data-zappy-component="true" style="width: 100%; padding: 60px 0;">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+          <h1 class="text-3xl md:text-4xl font-bold mb-4">New Page</h1>
+          <p class="text-gray-600 text-lg">This page is ready for your content.</p>
+        </div>
+      </section>
+    </main>
 
-  <section class="page-header">
-    <div class="container">
-      <h1 data-i18n="services_h1_1">השירותים המקצועיים שלנו</h1>
-      <h3 data-i18n="services_h3_13">פתרונות מתקדמים לתכנון אירועים עם הדמיה ויזואלית</h3>
-    </div>
-  </section>
+  
 
-  <section class="services-intro">
-    <div class="container">
-      <p data-i18n="services_p_15">OFFSCRIPT EVENTS מציעה מגוון שירותים מקיפים שמשלבים טכנולוגיה מתקדמת עם מומחיות בתכנון אירועים. הפלטפורמה לתכנון אירועים בישראל שלנו מספקת לכם את כל הכלים הנחוצים כדי להפוך את האירוע שלכם למציאות - מהדמיה ויזואלית לאירועים ועד לחיבור עם הספקים המובילים בתחום.</p>
-      <p data-i18n="services_p_16">אנחנו מבינים שתכנון אירוע הוא משימה מורכבת הדורשת תשומת לב לפרטים הקטנים ביותר. לכן פיתחנו מערכת ייחודית שמאפשרת לכם לראות בדיוק איך האירוע שלכם ייראה עוד לפני שאתם מתחייבים כלכלית. תכנון אירועים עם הדמיה מעניק לכם שקט נפשי ובטחון שהכל יהיה בדיוק כמו שדמיינתם.</p>
-    </div>
-  </section>
+  
 
-  <section class="section service-section" id="הדמיה-ויזואלית-תלת-מימדית" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item">
-      
-        <div class="service-image">
-          <img data-placeholder="service-1" data-context="Professional 3D visualization software showing elegant event space design with detailed lighting, furniture placement, and decor elements" src="/assets/offscript-events-service-service-1.webp" alt="הדמיה ויזואלית לאירועים - מערכת תלת מימדית מתקדמת" data-i18n-alt="services_alt_52">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_2">הדמיה ויזואלית תלת מימדית</h2>
-          <p data-i18n="services_p_17">הדמיה ויזואלית לאירועים היא הלב של השירות שלנו. המערכת המתקדמת שלנו מאפשרת לכם ליצור הדמיה מדויקת ומפורטת של האירוע שלכם בתלת מימד. תוכלו לראות איך כל פרט - מהקישוטים ועד לתאורה, מסידור השולחנות ועד לבמה - ייראה במציאות.</p>
-          <p data-i18n="services_p_18">הכלי שלנו מאפשר לכם להתנסות בסגנונות עיצוב שונים, לשנות צבעים וחומרים, ולבחון תצורות מרחב שונות. זוהי דרך מצוינת לקבל החלטות מושכלות ולהימנע מהפתעות לא נעימות ביום האירוע. תכנון אירועים עם הדמיה חוסך לכם זמן, כסף ומתח מיותר.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="מאגר-לוקיישנים-מקיף" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item service-item-reverse">
-      
-        <div class="service-image">
-          <img data-placeholder="service-2" data-context="Curated collection of diverse Israeli event venues including gardens, halls, rooftops, and unique locations with elegant settings" src="/assets/offscript-events-service-service-2.webp" alt="לוקיישנים לאירועים - מגוון אולמות ומקומות מיוחדים בישראל" data-i18n-alt="services_alt_53">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_3">מאגר לוקיישנים מקיף</h2>
-          <p data-i18n="services_p_19">הפלטפורמה שלנו מציעה גישה למאגר עשיר של לוקיישנים לאירועים בכל רחבי ישראל. מאולמות אירועים מפוארים ועד לחללים ייחודיים ואלטרנטיביים, תמצאו אצלנו את המקום המושלם לאירוע שלכם.</p>
-          <p data-i18n="services_p_20">כל לוקיישן במערכת שלנו מתועד בפירוט רב, כולל תמונות באיכות גבוהה, מפרט טכני, קיבולת, ומחירים. בנוסף, תוכלו להשתמש בכלי ההדמיה שלנו כדי לראות איך האירוע שלכם ייראה בדיוק בלוקיישן שבחרתם. זה מאפשר לכם לקבל החלטה מושכלת ולבחור את המקום שבאמת מתאים לחזון שלכם.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="חיבור-לספקי-שירותים-מובילים" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item">
-      
-        <div class="service-image">
-          <img data-placeholder="service-3" data-context="Network of professional event service providers including caterers, decorators, DJs, photographers collaborating on luxury event" src="/assets/offscript-events-service-service-3.webp" alt="רשת ספקים מקצועית - קייטרינג, עיצוב, DJ ועוד" data-i18n-alt="services_alt_54">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_4">חיבור לספקי שירותים מובילים</h2>
-          <p data-i18n="services_p_21">פלטפורמה לתכנון אירועים בישראל שלנו מחברת אתכם לרשת נבחרת של ספקי שירותים מקצועיים ומנוסים. מקייטרינג ועד DJ, מצלמים ועד מעצבי פרחים - כל הספקים שתצטרכו נמצאים במרחק קליק אחד.</p>
-          <p data-i18n="services_p_22">כל ספק במערכת שלנו עבר בדיקה קפדנית ונבחר על בסיס איכות השירות, המקצועיות והאמינות. תוכלו לראות המליצות מלקוחות קודמים, להשוות מחירים, ולקבל הצעות מחיר ישירות דרך הפלטפורמה. זה חוסך לכם את הטרחה של לחפש ספקים בעצמכם ומבטיח שתקבלו את השירות הטוב ביותר.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="ייעוץ-ותכנון-מקצועי" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item service-item-reverse">
-      
-        <div class="service-image">
-          <img data-placeholder="service-4" data-context="Event planning consultation session with professional planner showing design concepts and visualization tools to clients" src="/assets/offscript-events-service-service-4.webp" alt="ייעוץ מקצועי לתכנון אירועים - פגישת תכנון עם יועצים מומחים" data-i18n-alt="services_alt_55">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_5">ייעוץ ותכנון מקצועי</h2>
-          <p data-i18n="services_p_23">הצוות המקצועי שלנו מציע שירותי ייעוץ מקיפים לתכנון אירועים. בין אם אתם מתכננים חתונה, אירוע עסקי, או חגיגה משפחתית - אנחנו כאן כדי לעזור לכם להפוך את החזון שלכם למציאות.</p>
-          <p data-i18n="services_p_24">היועצים שלנו מביאים שנות ניסיון בתחום תכנון האירועים ומכירים לעומק את השוק הישראלי. הם יעזרו לכם לבחור את הלוקיישן המתאים, ינחו אתכם בתהליך העיצוב, ויוודאו שכל פרט מטופל בצורה מושלמת. תכנון אירועים עם הדמיה בשילוב עם ייעוץ מקצועי מבטיח תוצאה מושלמת.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="ניהול-תקציב-ושקיפות-מחירים" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item">
-      
-        <div class="service-image">
-          <img data-placeholder="service-5" data-context="Detailed budget planning spreadsheet and cost management tools for event planning with transparent pricing breakdown" src="/assets/offscript-events-service-service-5.webp" alt="ניהול תקציב אירועים - כלי תכנון כלכלי מתקדם" data-i18n-alt="services_alt_56">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_6">ניהול תקציב ושקיפות מחירים</h2>
-          <p data-i18n="services_p_25">אחד היתרונות הגדולים של הפלטפורמה לתכנון אירועים בישראל שלנו הוא השקיפות המלאה בכל הנוגע למחירים. המערכת שלנו מאפשרת לכם לנהל את תקציב האירוע בצורה יעילה ולראות בדיוק לאן הולך כל שקל.</p>
-          <p data-i18n="services_p_26">תוכלו להשוות מחירים בין ספקים שונים, לקבל הצעות מחיר מפורטות, ולבנות תקציב מדויק שמתאים ליכולות הכלכליות שלכם. המערכת גם מתריעה אם אתם חורגים מהתקציב ומציעה חלופות חסכוניות. זה מאפשר לכם לתכנן אירוע מושלם מבלי לדאוג להפתעות כלכליות.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="ניהול-לוחות-זמנים-ותיאום" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item service-item-reverse">
-      
-        <div class="service-image">
-          <img data-placeholder="service-6" data-context="Event coordination timeline and checklist management system showing organized planning process and milestone tracking" src="/assets/offscript-events-service-service-6.webp" alt="ניהול לוחות זמנים - מערכת תיאום ותזמון מתקדמת לאירועים" data-i18n-alt="services_alt_57">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_7">ניהול לוחות זמנים ותיאום</h2>
-          <p data-i18n="services_p_27">תכנון אירועים עם הדמיה כולל גם ניהול יעיל של לוחות זמנים. המערכת שלנו עוזרת לכם לתאם בין כל הגורמים המעורבים באירוע - מהספקים ועד לאורחים.</p>
-          <p data-i18n="services_p_28">תוכלו ליצור לוח זמנים מפורט לאירוע, להגדיר תזכורות, ולוודא שכל משימה מבוצעת בזמן. המערכת גם מאפשרת שיתוף פעולה עם ספקים והזמנת שירותים ישירות דרך הפלטפורמה. זה מפשט את התהליך ומבטיח שהכל מתקדם בצורה חלקה וללא תקלות.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="תבניות-עיצוב-מותאמות-אישית" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item">
-      
-        <div class="service-image">
-          <img data-placeholder="service-7" data-context="Custom event design templates and style options showing various themes, color schemes, and decor possibilities" src="/assets/offscript-events-service-service-7.webp" alt="תבניות עיצוב מותאמות אישית - סגנונות ונושאים מגוונים לאירועים" data-i18n-alt="services_alt_58">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_8">תבניות עיצוב מותאמות אישית</h2>
-          <p data-i18n="services_p_29">הדמיה ויזואלית לאירועים שלנו כוללת מגוון רחב של תבניות עיצוב מוכנות שיכולות לשמש נקודת התחלה לאירוע שלכם. מסגנון קלאסי ואלגנטי ועד לעיצוב מודרני ועכשווי - תמצאו אצלנו השראה לכל סוג של אירוע.</p>
-          <p data-i18n="services_p_30">כל תבנית ניתנת להתאמה אישית מלאה. תוכלו לשנות צבעים, חומרים, סידור רהיטים ועוד. המערכת גם מציעה המלצות עיצוביות מבוססות על הלוקיישן שבחרתם והתקציב שלכם. זה מאפשר לכם ליצור אירוע ייחודי שמשקף את האישיות והסגנון שלכם.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="סיור-וירטואלי-באירוע" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item service-item-reverse">
-      
-        <div class="service-image">
-          <img data-placeholder="service-8" data-context="Virtual reality headset showing immersive 3D event walkthrough experience with interactive elements" src="/assets/offscript-events-service-service-8.webp" alt="סיור וירטואלי באירוע - חוויית VR אינטראקטיבית" data-i18n-alt="services_alt_59">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_9">סיור וירטואלי באירוע</h2>
-          <p data-i18n="services_p_31">פלטפורמה לתכנון אירועים בישראל שלנו מציעה חוויה ייחודית של סיור וירטואלי באירוע שלכם. באמצעות טכנולוגיית VR מתקדמת, תוכלו ממש ללכת בתוך האירוע שתכננתם ולחוות אותו מכל זווית.</p>
-          <p data-i18n="services_p_32">הסיור הוירטואלי מאפשר לכם לבחון את הפרופורציות, לראות איך התאורה משפיעה על האווירה, ולקבל תחושה אמיתית של המרחב. זוהי דרך מצוינת לזהות בעיות פוטנציאליות ולבצע שינויים לפני האירוע עצמו. תכנון אירועים עם הדמיה וירטואלית מעניק לכם ביטחון מלא שהכל יהיה מושלם.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="ליווי-ביום-האירוע" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item">
-      
-        <div class="service-image">
-          <img data-placeholder="service-9" data-context="Event day coordination team with tablets and communication devices managing seamless event execution" src="/assets/offscript-events-service-service-9.webp" alt="ליווי ביום האירוע - צוות תיאום מקצועי" data-i18n-alt="services_alt_60">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_10">ליווי ביום האירוע</h2>
-          <p data-i18n="services_p_33">השירות שלנו לא נגמר בתכנון - אנחנו מציעים גם ליווי מקצועי ביום האירוע עצמו. צוות מנוסה של מתאמי אירועים יהיה נוכח כדי לוודא שהכל מתנהל בדיוק כמו שתכננתם.</p>
-          <p data-i18n="services_p_34">המתאמים שלנו ידאגו לתיאום בין הספקים, יפתרו כל בעיה שעולה בזמן אמת, ויוודאו שהלוח זמנים מתקיים. זה מאפשר לכם ולאורחים שלכם ליהנות מהאירוע מבלי לדאוג לפרטים הלוגיסטיים. הדמיה ויזואלית לאירועים בשילוב עם ליווי מקצועי ביום האירוע מבטיחה חוויה מושלמת מהתחלה ועד הסוף.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
-<section class="section service-section" id="מעקב-ומשוב-לאחר-האירוע" data-zappy-section="true">
-  <div class="container">
-    <div class="service-item service-item-reverse">
-      
-        <div class="service-image">
-          <img data-placeholder="service-10" data-context="Post-event feedback and analytics dashboard showing guest satisfaction metrics and event success measurements" src="/assets/offscript-events-service-service-10.webp" alt="מעקב ומשוב לאחר האירוע - מערכת ניתוח ושיפור" data-i18n-alt="services_alt_61">
-        </div>
-        <div class="service-content">
-          <h2 data-i18n="services_h2_11">מעקב ומשוב לאחר האירוע</h2>
-          <p data-i18n="services_p_35">גם לאחר שהאירוע הסתיים, אנחנו ממשיכים לעבוד עבורכם. המערכת שלנו מאפשרת איסוף משוב מהאורחים, ניתוח הצלחת האירוע, וזיהוי נקודות לשיפור לאירועים עתידיים.</p>
-          <p data-i18n="services_p_36">תוכלו לראות סטטיסטיקות מפורטות על האירוע, לקבל דירוגים של הספקים, ולשתף את החוויה שלכם עם משתמשים אחרים בפלטפורמה. המשוב הזה עוזר לנו לשפר ולהתאים את השירות שלנו, ומאפשר לכם ללמוד מהניסיון לקראת אירועים עתידיים. תכנון אירועים עם הדמיה ומעקב מקיף הוא המפתח להצלחה מתמשכת.</p>
-        </div>
-      
-    </div>
-  </div>
-</section>
+  
 
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2 data-i18n="services_h2_12">מוכנים להתחיל את התכנון?</h2>
-        <p data-i18n="services_p_37">צרו קשר עוד היום וגלו איך הפלטפורמה שלנו יכולה להפוך את האירוע שלכם למציאות</p>
-        <a href="/contact" class="btn-cta" data-i18n="services_link_41">התחילו עכשיו</a>
-      </div>
-    </div>
-  </section>
+  
 
-  <a href="https://wa.me/972542911625" target="_blank" class="whatsapp-float" aria-label="WhatsApp" rel="noopener noreferrer">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  
+
+  
 
   
     <!-- Legal Footer -->
@@ -780,7 +810,7 @@
       <div class="container">
         <div class="footer-main">
           <div class="all-rights-reserved">
-            <p data-i18n="services_p_38">© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.</p>
+            <p data-i18n="home_p_27">© 2025 OFFSCRIPT EVENTS. כל הזכויות שמורות.</p>
           </div>
           <div class="footer-social"><a href="https://facebook.com/https://www.facebook.com/orencorcos/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 <a href="https://instagram.com/https://www.threads.com/@orencorcos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -788,21 +818,21 @@
 <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display:none;"><i class="fab fa-youtube"></i></a>
 <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="display:none;"><i class="fab fa-tiktok"></i></a></div>
           <div class="footer-legal">
-            <a href="/privacy" aria-label="מדיניות פרטיות" data-i18n="services_link_42">
+            <a href="/privacy" aria-label="מדיניות פרטיות" data-i18n="home_link_33">
               מדיניות פרטיות
             </a>
             <span class="separator">|</span>
-            <a href="/accessibility" aria-label="נגישות" data-i18n="services_link_43">
+            <a href="/accessibility" aria-label="נגישות" data-i18n="home_link_34">
               נגישות
             </a>
             <span class="separator">|</span>
-            <a href="/terms" aria-label="תנאי שימוש" data-i18n="services_link_44">
+            <a href="/terms" aria-label="תנאי שימוש" data-i18n="home_link_35">
               תנאי שימוש
             </a>
           </div>
         </div>
         <div class="zappy-attribution">
-          <p data-i18n="services_p_39">נוצר באמצעות&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="services_link_45">Zappy</a></p>
+          <p data-i18n="home_p_28">נוצר באמצעות&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;" data-i18n="home_link_36">Zappy</a></p>
         </div>
       </div>
     </footer>
@@ -866,7 +896,7 @@
     });
 })();
 </script>
-    <div data-integration="accessibility:toolbar"></div>
+    
 
 
 
