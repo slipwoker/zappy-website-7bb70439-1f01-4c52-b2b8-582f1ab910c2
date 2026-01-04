@@ -155,8 +155,8 @@
             }
             
             /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu &gt; li &gt; .menu-group-title,
-            #navMenu &gt; li &gt; .menu-group-title {
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -170,13 +170,13 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &gt; li &gt; .menu-group-title:hover,
-            #navMenu &gt; li &gt; .menu-group-title:hover {
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
             }
             
             /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover &gt; .sub-menu {
+            li:has(.menu-group-title):hover > .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -185,7 +185,7 @@
             
             /* Hide menu items marked as hidden (overrides hover states) */
             .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover &gt; .sub-menu .zappy-hidden-menu-item {
+            li:has(.menu-group-title):hover > .sub-menu .zappy-hidden-menu-item {
               display: none !important;
               opacity: 0 !important;
               visibility: hidden !important;
@@ -238,9 +238,9 @@
             }
             
             /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover &gt; .sub-menu,
-            nav li:hover &gt; .sub-menu,
-            .navbar li:hover &gt; .sub-menu {
+            .nav-menu li:hover > .sub-menu,
+            nav li:hover > .sub-menu,
+            .navbar li:hover > .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -278,8 +278,8 @@
             }
             
             /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu &gt; li &gt; .menu-group-title,
-            #navMenu &gt; li &gt; .menu-group-title {
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -293,8 +293,8 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &gt; li &gt; .menu-group-title:hover,
-            #navMenu &gt; li &gt; .menu-group-title:hover {
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
               background-color: transparent !important;
             }
@@ -335,18 +335,18 @@
               }
               
               /* Disable hover behavior on mobile */
-              .nav-menu li:hover &gt; .sub-menu,
-              nav li:hover &gt; .sub-menu,
-              .navbar li:hover &gt; .sub-menu {
+              .nav-menu li:hover > .sub-menu,
+              nav li:hover > .sub-menu,
+              .navbar li:hover > .sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
               }
               
               /* Enable visibility for expanded submenus */
-              .nav-menu li &gt; .sub-menu.mobile-expanded,
-              nav li &gt; .sub-menu.mobile-expanded,
-              .navbar li &gt; .sub-menu.mobile-expanded {
+              .nav-menu li > .sub-menu.mobile-expanded,
+              nav li > .sub-menu.mobile-expanded,
+              .navbar li > .sub-menu.mobile-expanded {
                 opacity: 1 !important;
                 visibility: visible !important;
                 pointer-events: auto !important;
@@ -372,11 +372,11 @@
               }
               
               /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) &gt; a,
-              nav li:has(.sub-menu) &gt; a,
-              .navbar li:has(.sub-menu) &gt; a,
-              .nav-menu &gt; li &gt; .menu-group-title,
-              #navMenu &gt; li &gt; .menu-group-title {
+              .nav-menu li:has(.sub-menu) > a,
+              nav li:has(.sub-menu) > a,
+              .navbar li:has(.sub-menu) > a,
+              .nav-menu > li > .menu-group-title,
+              #navMenu > li > .menu-group-title {
                 flex: 1 !important;
               }
               
@@ -413,9 +413,9 @@
               }
               
               /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) &gt; .sub-menu,
-              nav li:has(.sub-menu) &gt; .sub-menu,
-              .navbar li:has(.sub-menu) &gt; .sub-menu {
+              .nav-menu li:has(.sub-menu) > .sub-menu,
+              nav li:has(.sub-menu) > .sub-menu,
+              .navbar li:has(.sub-menu) > .sub-menu {
                 flex-basis: 100% !important;
                 width: 100% !important;
               }
@@ -435,10 +435,10 @@
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth &gt; 768) {
+                if (window.innerWidth > 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&gt; btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&gt; {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu => {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -461,7 +461,7 @@
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope &gt; a') || li.querySelector(':scope &gt; .menu-group-title');
+                  const parentLink = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -521,7 +521,7 @@
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' &amp;&amp; mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -567,9 +567,9 @@
         list-style: none;
         pointer-events: none;
       }
-      .nav-menu li:hover &gt; .sub-menu,
-      nav li:hover &gt; .sub-menu,
-      .navbar li:hover &gt; .sub-menu {
+      .nav-menu li:hover > .sub-menu,
+      nav li:hover > .sub-menu,
+      .navbar li:hover > .sub-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -1030,6 +1030,8 @@
 
 
 
+
+
 <!-- i18next Multi-Language Support -->
 <script>
 (function() {
@@ -1052,6 +1054,7 @@
       "new_p_93": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "new_p_94": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "new_p_95": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
+      "new_p_96": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "home_h1_1": "הפלטפורמה המובילה לתכנון אירועים בישראל",
       "home_h2_2": "למה לבחור ב-OFFSCRIPT EVENTS?",
       "home_h2_3": "היתרונות שלנו",
@@ -1699,7 +1702,7 @@
       "menu_group_1766946580153_placeholder_69": "טלפון",
       "menu_group_1766946580153_placeholder_70": "אימייל",
       "menu_group_1766946580153_placeholder_71": "הודעה",
-      "new_p_96": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת"
+      "new_p_97": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת"
     }
   },
   "en": {
@@ -1719,6 +1722,7 @@
       "new_p_93": "Experience your event before it happens with advanced visual simulation",
       "new_p_94": "Experience your event before it happens with advanced visual simulation",
       "new_p_95": "Experience your event before it happens with advanced visual simulation",
+      "new_p_96": "Experience your event before it happens with advanced visual simulation",
       "home_h1_1": "Israel's Leading Event Planning Platform",
       "home_h2_2": "Why Choose OFFSCRIPT EVENTS?",
       "home_h2_3": "Our Advantages",
@@ -2366,7 +2370,7 @@
       "menu_group_1766946580153_placeholder_69": "Phone",
       "menu_group_1766946580153_placeholder_70": "Email",
       "menu_group_1766946580153_placeholder_71": "Message",
-      "new_p_96": "Experience your event before it happens with advanced visual simulation"
+      "new_p_97": "Experience your event before it happens with advanced visual simulation"
     }
   }
 };
