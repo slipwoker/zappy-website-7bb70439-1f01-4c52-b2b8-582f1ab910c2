@@ -14,8 +14,6 @@
 /blog/location-tips  /blog/location-tips.html  200
 /locaitions  /locaitions.html  200
 /contact  /contact.html  200
-/locaitions-pool  /locaitions-pool.html  200
-/new-page  /new-page.html  200
 
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301
