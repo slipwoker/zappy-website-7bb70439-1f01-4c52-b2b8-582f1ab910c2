@@ -15,6 +15,23 @@
 /locaitions  /locaitions.html  200
 /contact  /contact.html  200
 
+# Language slug rewrites for SEO
+/en  /en/index.html  200
+/en/services  /en/services.html  200
+/en/about  /en/about.html  200
+/en/privacy  /en/privacy.html  200
+/en/accessibility  /en/accessibility.html  200
+/en/terms  /en/terms.html  200
+/en/concept-events  /en/concept-events.html  200
+/en/culinary-menu  /en/culinary-menu.html  200
+/en/blog  /en/blog.html  200
+/en/blog/visual-simulation  /en/blog-visual-simulation.html  200
+/en/blog/planning-platform  /en/blog-planning-platform.html  200
+/en/blog/location-tips  /en/blog-location-tips.html  200
+/en/locaitions  /en/locaitions.html  200
+/en/contact  /en/contact.html  200
+/en  /en/index.html  200
+
 # Legal pages - redirect old .html URLs to friendly URLs
 /privacy.html  /privacy  301
 /accessibility.html  /accessibility  301
