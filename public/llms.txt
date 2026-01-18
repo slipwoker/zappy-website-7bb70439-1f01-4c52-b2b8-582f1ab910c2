@@ -1,4 +1,6 @@
-# Business — Generative Engine Optimization Map
+# OFFSCRIPT EVENTS — Generative Engine Optimization Map
+
+> A אירועים ותכנון business.
 
 ---
 
@@ -64,7 +66,15 @@ Information about WCAG compliance and accessibility features.
 
 # Business Context (for LLM understanding)
 
-## About Business
+## About OFFSCRIPT EVENTS
+OFFSCRIPT EVENTS is a business in the אירועים ותכנון industry.
+
+## Target Audience
+אנשים המתכננים אירועים
+
+## Industry
+אירועים ותכנון
+
 ---
 
 # Additional Resources
