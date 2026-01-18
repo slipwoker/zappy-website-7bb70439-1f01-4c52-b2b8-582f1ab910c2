@@ -640,7 +640,7 @@ img[data-no-hero-position] { position: static !important; }
   // Configuration
   var config = {
     websiteId: '7bb70439-1f01-4c52-b2b8-582f1ab910c2',
-    apiUrl: 'http://localhost:5001/api/analytics/track',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
     sessionDuration: 30 * 60 * 1000, // 30 minutes
     visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
     trackPageViews: true,
@@ -1221,6 +1221,7 @@ img[data-no-hero-position] { position: static !important; }
       "new_p_95": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "new_p_96": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
       "new_p_97": "חוו את האירוע שלכם לפני שהוא קורה עם הדמיה ויזואלית מתקדמת",
+      "new_p_98": "מיקומים",
       "home_h1_1": "הפלטפורמה המובילה לתכנון אירועים בישראל",
       "home_h2_2": "למה לבחור ב-OFFSCRIPT EVENTS?",
       "home_h2_3": "היתרונות שלנו",
@@ -1867,8 +1868,7 @@ img[data-no-hero-position] { position: static !important; }
       "menu_group_1766946580153_placeholder_68": "שם מלא",
       "menu_group_1766946580153_placeholder_69": "טלפון",
       "menu_group_1766946580153_placeholder_70": "אימייל",
-      "menu_group_1766946580153_placeholder_71": "הודעה",
-      "new_p_98": "מיקומים"
+      "menu_group_1766946580153_placeholder_71": "הודעה"
     }
   },
   "en": {
@@ -1890,6 +1890,7 @@ img[data-no-hero-position] { position: static !important; }
       "new_p_95": "Experience your event before it happens with advanced visual simulation",
       "new_p_96": "Experience your event before it happens with advanced visual simulation",
       "new_p_97": "Experience your event before it happens with advanced visual simulation",
+      "new_p_98": "LOCATIONS",
       "home_h1_1": "Israel's Leading Event Planning Platform",
       "home_h2_2": "Why Choose OFFSCRIPT EVENTS?",
       "home_h2_3": "Our Advantages",
@@ -2536,8 +2537,7 @@ img[data-no-hero-position] { position: static !important; }
       "menu_group_1766946580153_placeholder_68": "Full name",
       "menu_group_1766946580153_placeholder_69": "Phone",
       "menu_group_1766946580153_placeholder_70": "Email",
-      "menu_group_1766946580153_placeholder_71": "Message",
-      "new_p_98": "LOCATIONS"
+      "menu_group_1766946580153_placeholder_71": "Message"
     }
   }
 };
@@ -2594,18 +2594,23 @@ img[data-no-hero-position] { position: static !important; }
   function updateContent() {
     // Newline character for detection
     var newlineChar = String.fromCharCode(10);
+    // HTML tag pattern for detection (common formatting tags)
+    var htmlTagPattern = /<(font|b|i|u|strong|em|span|br|a|sub|sup|mark|del|ins|s|small|big)[^>]*>/i;
     
-    // Update text content - use innerHTML only when text contains line breaks
+    // Update text content - use innerHTML when text contains line breaks or HTML tags
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');
       var translation = zappyI18n.t(key);
       if (translation && translation !== key) {
-        // Check if translation contains newlines that need to be rendered as <br>
-        if (translation.indexOf(newlineChar) !== -1) {
+        // Check if translation contains newlines or HTML formatting tags
+        var hasNewlines = translation.indexOf(newlineChar) !== -1;
+        var hasHtmlTags = htmlTagPattern.test(translation);
+        
+        if (hasNewlines || hasHtmlTags) {
           // Convert newlines to <br> and use innerHTML to preserve HTML formatting
           el.innerHTML = translation.split(newlineChar).join('<br>');
         } else {
-          // No newlines, use textContent for safety
+          // No HTML content, use textContent for safety
           el.textContent = translation;
         }
       }
@@ -2690,62 +2695,69 @@ img[data-no-hero-position] { position: static !important; }
       el.style.textAlign = isRTL ? 'right' : 'left';
     });
     
-    // Update navigation/header - set direction and justify-content
-    // Don't set flex-direction here - let CSS handle it with media queries to preserve mobile menu
-    document.querySelectorAll('header, nav, .navbar, .nav-container, .header-container').forEach(function(el) {
-      el.style.direction = newDir;
-      el.style.justifyContent = 'flex-start';
-      // Only set flex-direction on desktop (check viewport width)
-      if (window.innerWidth >= 768) {
-        el.style.flexDirection = 'row';
-      }
+    // IMPORTANT: Do NOT set direction on navigation flex containers!
+    // V2 sites have layouts designed for a specific direction.
+    // Changing inline direction on flex containers reverses the item order, breaking layouts.
+    // Instead, we rely on the dir attribute on <html> for text direction,
+    // and let the original CSS handle navigation layout.
+    
+    // Remove dir ATTRIBUTE from nav elements - they should inherit from <html>
+    // V2 sites may have hardcoded dir="rtl" on nav elements which needs to be removed
+    document.querySelectorAll('header, nav, .navbar, .nav-container, .header-container, .nav-links, .menu, nav ul, header ul, #navMenu').forEach(function(el) {
+      // Remove dir attribute so element inherits from <html>
+      el.removeAttribute('dir');
+      // Remove all layout-affecting inline styles - let original CSS take over
+      el.style.removeProperty('direction');
+      el.style.removeProperty('flex-direction');
+      el.style.removeProperty('justify-content');
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
     });
     
-    // Update nav menus/links container - reset margins (include #navMenu id selector)
-    // Don't override flex-direction on mobile menus
-    document.querySelectorAll('.nav-menu, .nav-links, .menu, nav ul, header ul, #navMenu').forEach(function(el) {
-      el.style.direction = newDir;
-      el.style.marginLeft = '0';
-      el.style.marginRight = '0';
-      // Only set flex-direction on desktop
-      if (window.innerWidth >= 768) {
-        el.style.flexDirection = 'row';
-      }
-    });
-    
-    // Reset all nav link margins to keep them near logo
-    document.querySelectorAll('header > a, nav > a, .nav-menu > a, .nav-links > a, nav ul li, header ul li').forEach(function(el) {
-      // Skip CTA buttons - they need their auto margin
-      if (el.classList.contains('btn') || el.classList.contains('button') || el.classList.contains('cta') || 
-          el.className.includes('btn-') || el.className.includes('button-')) {
-        return;
-      }
-      el.style.marginLeft = '0';
-      el.style.marginRight = '0';
-    });
-    
-    // Reset logo margins (including nav-brand class)
-    document.querySelectorAll('.logo, .site-logo, .brand, .navbar-brand, .nav-brand').forEach(function(el) {
-      el.style.marginLeft = '0';
-      el.style.marginRight = '0';
-    });
-    
-    // Position language switcher next to CTA - it should have the auto margin to push both to the end
-    document.querySelectorAll('header .lang-switcher, nav .lang-switcher, .navbar .lang-switcher').forEach(function(el) {
+    // SPECIAL HANDLING for nav elements
+    document.querySelectorAll('.nav-menu, #navMenu, .nav-right-group').forEach(function(el) {
+      el.removeAttribute('dir');
+      el.style.removeProperty('direction');
+      el.style.removeProperty('flex-direction');
+      el.style.removeProperty('justify-content');
       if (isRTL) {
-        el.style.marginRight = 'auto';
-        el.style.marginLeft = '8px';
+        el.style.removeProperty('margin-left');
+        el.style.removeProperty('margin-right');
       } else {
-        el.style.marginLeft = 'auto';
-        el.style.marginRight = '8px';
+        // In LTR: override CSS margin-left:auto with 0 for nav-menu elements
+        el.style.setProperty('margin-left', '0', 'important');
+        el.style.removeProperty('margin-right');
       }
     });
     
-    // CTA buttons should be right after language switcher (no auto margin needed if lang-switcher has it)
+    // CRITICAL FIX FOR V2 SITES: Move lang-switcher INSIDE nav-cta-container
+    // V2 sites use margin-left:auto on nav-cta-container to push it right.
+    // If lang-switcher is a sibling, it gets left behind. Moving it inside keeps them grouped.
+    document.querySelectorAll('.lang-switcher').forEach(function(el) {
+      var ctaContainer = el.parentElement ? el.parentElement.querySelector('.nav-cta-container') : null;
+      if (ctaContainer && el.parentElement === ctaContainer.parentElement) {
+        // Move lang-switcher as first child of CTA container
+        ctaContainer.insertBefore(el, ctaContainer.firstChild);
+      }
+      // Clear any margin overrides
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
+    });
+    
+    // Remove any previously set margins on nav links and logo
+    document.querySelectorAll('header > a, nav > a, .nav-menu > a, .nav-links > a, nav ul li, header ul li, .logo, .site-logo, .brand, .navbar-brand, .nav-brand').forEach(function(el) {
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
+    });
+    
+    // NOTE: Removed old code that set margin-left:auto on .lang-switcher
+    // This conflicted with V2 layouts. The margin handling is now done in the 
+    // special handling section above that sets margin-left:0 in LTR mode.
+    
+    // CTA buttons - remove any inline margin styles to let CSS handle positioning
     document.querySelectorAll('header .btn, header .button, header .cta, nav .btn, nav .button, .navbar .btn, .nav-cta-container, .cta-container, .header-cta, .nav-cta').forEach(function(el) {
-      // Remove auto margins from CTA since lang-switcher handles positioning
-      el.style.marginLeft = '0';
-      el.style.marginRight = '0';
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
     });
     
     // Globe icon SVG for language switcher button (minimal design, no chevron)
@@ -2839,11 +2851,29 @@ img[data-no-hero-position] { position: static !important; }
     });
   }
   
+  // Fix mobile menu inline styles that may have been incorrectly persisted
+  // This is needed because inline styles override CSS media queries
+  function fixMobileMenuStyles() {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+    
+    // Remove inline flex-direction from nav menus so CSS can take over
+    document.querySelectorAll('.nav-menu, #navMenu, nav ul, header ul').forEach(function(el) {
+      if (el.style.flexDirection) {
+        el.style.removeProperty('flex-direction');
+      }
+    });
+  }
+  
   // Initialize on DOM ready
   function init() {
     updateContent();
     updateDirection();
     initLanguageSwitcher();
+    fixMobileMenuStyles();
+    
+    // Also fix on resize (in case user rotates device)
+    window.addEventListener('resize', fixMobileMenuStyles);
   }
   
   // Expose to global scope
@@ -2890,6 +2920,22 @@ img[data-no-hero-position] { position: static !important; }
       if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
       else { initMobileSubmenuToggles(); }
       var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
     })();
     </script>
     <script src="/script.js"></script>
