@@ -571,11 +571,7 @@ section {
   background: var(--bg-white);
   border-radius: 12px;
   box-shadow: var(--shadow);
-}html[dir="ltr"] .service-item-reverse{
-  direction: ltr;
-}html[dir="rtl"] .service-item-reverse .service-content{
-  direction: rtl;
-}
+}html[dir="ltr"] .service-item-reverse{direction: ltr;}html[dir="rtl"] .service-item-reverse .service-content{direction: rtl;}
 
 .service-image img {
   width: 100%;
@@ -904,11 +900,9 @@ section {
 
   .step-arrow {
     transform: rotate(90deg);
-  }html[dir="rtl"] .service-item,
-  .service-item-reverse{
-    grid-template-columns: 1fr;
-    direction: rtl;
-  }
+  }.service-item,
+  .service-item-reverse{grid-template-columns: 1fr;}html[dir="rtl"] .service-item,
+  .service-item-reverse{direction: rtl;}
 
   .service-image img {
     height: 250px;
@@ -1588,7 +1582,7 @@ html[dir="rtl"] .wrapper {
 }
 
 /* ONLY apply text-align to legal page content that needs RTL alignment */
-html[dir="rtl"] .legal-content,
+.legal-content,
 html[dir="rtl"] .terms-content,
 html[dir="rtl"] .privacy-content,
 html[dir="rtl"] .legal-content p,
@@ -1596,10 +1590,15 @@ html[dir="rtl"] .terms-content p,
 html[dir="rtl"] .privacy-content p,
 html[dir="rtl"] .legal-content li,
 html[dir="rtl"] .terms-content li,
-html[dir="rtl"] .privacy-content li {
-  direction: rtl !important;
-  text-align: right !important;
-}
+html[dir="rtl"] .privacy-content li{text-align: right !important;}html[dir="rtl"] .legal-content,
+html[dir="rtl"] .terms-content,
+html[dir="rtl"] .privacy-content,
+html[dir="rtl"] .legal-content p,
+html[dir="rtl"] .terms-content p,
+html[dir="rtl"] .privacy-content p,
+html[dir="rtl"] .legal-content li,
+html[dir="rtl"] .terms-content li,
+html[dir="rtl"] .privacy-content li{direction: rtl !important;}
 
 /* ============================================
    NAVIGATION/HEADER DIRECTION FIXES
@@ -1695,49 +1694,48 @@ html[dir="ltr"] .lang-switcher ~ .nav-cta-container {
 }
 
 /* RTL Navigation - Logo right, menu items next to logo, CTA on far left */
-html[dir="rtl"] header,
+header,
 html[dir="rtl"] nav,
 html[dir="rtl"] .navbar,
 html[dir="rtl"] .nav-container,
-html[dir="rtl"] .header-container {
-  direction: rtl !important;
-  flex-direction: row !important;
-  justify-content: flex-start !important; /* Group items to the right (RTL start), CTA's margin-right:auto will push it left */
-}
+html[dir="rtl"] .header-container{flex-direction: row !important;justify-content: flex-start !important;/* Group items to the right (RTL start), CTA's margin-right:auto will push it left */;}html[dir="rtl"] header,
+html[dir="rtl"] nav,
+html[dir="rtl"] .navbar,
+html[dir="rtl"] .nav-container,
+html[dir="rtl"] .header-container{direction: rtl !important;}
 
 /* Force nav/menu items to stay near logo in RTL - DESKTOP ONLY */
 /* Don't override mobile menu which should be vertical */
 @media (min-width: 768px) {
-  html[dir="rtl"] .nav-menu:not(.mobile-menu):not(.mobile-nav),
+  .nav-menu:not(.mobile-menu):not(.mobile-nav),
   html[dir="rtl"] .nav-links:not(.mobile-menu):not(.mobile-nav),
   html[dir="rtl"] .menu:not(.mobile-menu):not(.mobile-nav),
   html[dir="rtl"] .navigation-links:not(.mobile-menu):not(.mobile-nav),
   html[dir="rtl"] nav ul:not(.mobile-menu):not(.mobile-nav),
   html[dir="rtl"] header ul:not(.mobile-menu):not(.mobile-nav),
   html[dir="rtl"] #navMenu:not(.mobile-menu):not(.mobile-nav),
-  html[dir="rtl"] ul.nav-menu:not(.mobile-menu):not(.mobile-nav) {
-    direction: rtl !important;
-    flex-direction: row !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+  html[dir="rtl"] ul.nav-menu:not(.mobile-menu):not(.mobile-nav){flex-direction: row !important;margin-left: 0 !important;margin-right: 0 !important;}html[dir="rtl"] .nav-menu:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] .nav-links:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] .menu:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] .navigation-links:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] nav ul:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] header ul:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] #navMenu:not(.mobile-menu):not(.mobile-nav),
+  html[dir="rtl"] ul.nav-menu:not(.mobile-menu):not(.mobile-nav){direction: rtl !important;}
 }
 
 /* Individual nav links in RTL - ensure no auto margins */
-html[dir="rtl"] .nav-menu > a,
+.nav-menu > a,
 html[dir="rtl"] .nav-menu > li,
 html[dir="rtl"] .nav-links > a,
 html[dir="rtl"] .nav-links > li,
 html[dir="rtl"] nav > a:not(.btn):not(.button):not(.cta):not([class*="btn-"]),
 html[dir="rtl"] header > a:not(.btn):not(.button):not(.cta):not([class*="btn-"]),
 html[dir="rtl"] nav ul > li,
-html[dir="rtl"] header ul > li {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
+html[dir="rtl"] header ul > li{margin-left: 0 !important;margin-right: 0 !important;}
 
 /* In RTL: Logo should have no auto margins */
-html[dir="rtl"] .logo,
+.logo,
 html[dir="rtl"] .site-logo,
 html[dir="rtl"] .brand,
 html[dir="rtl"] .navbar-brand,
@@ -1745,32 +1743,23 @@ html[dir="rtl"] .nav-brand,
 html[dir="rtl"] header a:first-child:has(img),
 html[dir="rtl"] nav a:first-child:has(img),
 html[dir="rtl"] header > a:first-child,
-html[dir="rtl"] nav > a:first-child {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
+html[dir="rtl"] nav > a:first-child{margin-left: 0 !important;margin-right: 0 !important;}
 
 /* CTA button - no auto margin when lang-switcher is present (lang-switcher handles positioning) */
 /* This acts as fallback when lang-switcher is not present */
-html[dir="rtl"] header .btn:not(.lang-switcher ~ .btn),
+header .btn:not(.lang-switcher ~ .btn),
 html[dir="rtl"] header .button:not(.lang-switcher ~ .button),
 html[dir="rtl"] header .cta:not(.lang-switcher ~ .cta),
 html[dir="rtl"] nav .btn:not(.lang-switcher ~ .btn),
 html[dir="rtl"] nav .button:not(.lang-switcher ~ .button),
-html[dir="rtl"] .navbar .btn:not(.lang-switcher ~ .btn) {
-  margin-right: auto !important;
-  margin-left: 0 !important;
-}
+html[dir="rtl"] .navbar .btn:not(.lang-switcher ~ .btn){margin-right: auto !important;margin-left: 0 !important;}
 
 /* CTA after lang-switcher should have no auto margin */
-html[dir="rtl"] .lang-switcher ~ .btn,
+.lang-switcher ~ .btn,
 html[dir="rtl"] .lang-switcher ~ .button,
 html[dir="rtl"] .lang-switcher ~ .cta,
 html[dir="rtl"] .lang-switcher ~ [class*="btn-"],
-html[dir="rtl"] .lang-switcher ~ .nav-cta-container {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-}
+html[dir="rtl"] .lang-switcher ~ .nav-cta-container{margin-right: 0 !important;margin-left: 0 !important;}
 
 /* Language Switcher Container - Fixed Position */
 .zappy-lang-switcher-container {
@@ -1782,10 +1771,7 @@ html[dir="rtl"] .lang-switcher ~ .nav-cta-container {
 }
 
 /* RTL: Move to left side */
-html[dir="rtl"] .zappy-lang-switcher-container {
-  right: auto;
-  left: 12px;
-}
+.zappy-lang-switcher-container{right: auto;left: 12px;}
 
 /* Language Switcher Styles */
 .lang-switcher {
@@ -1805,12 +1791,9 @@ html[dir="ltr"] .navbar .lang-switcher {
 }
 
 /* RTL: Push to the left with margin-right:auto */
-html[dir="rtl"] header .lang-switcher,
+header .lang-switcher,
 html[dir="rtl"] nav .lang-switcher,
-html[dir="rtl"] .navbar .lang-switcher {
-  margin-right: auto !important;
-  margin-left: 8px !important;
-}
+html[dir="rtl"] .navbar .lang-switcher{margin-right: auto !important;margin-left: 8px !important;}
 
 .lang-switcher-current {
   display: flex;
@@ -1860,14 +1843,9 @@ html[dir="rtl"] .navbar .lang-switcher {
   transition: background 0.15s ease;
 }
 
-html[dir="rtl"] .lang-option {
-  text-align: right;
-}
+.lang-option{text-align: right;}
 
-html[dir="rtl"] .lang-switcher-dropdown {
-  right: auto;
-  left: 0;
-}
+.lang-switcher-dropdown{right: auto;left: 0;}
 
 .lang-option:hover {
   background: #f5f5f5;
@@ -1880,10 +1858,7 @@ html[dir="rtl"] .lang-switcher-dropdown {
     right: 8px;
   }
   
-  html[dir="rtl"] .zappy-lang-switcher-container {
-    right: auto;
-    left: 8px;
-  }
+  .zappy-lang-switcher-container{right: auto;left: 8px;}
   
   .lang-switcher-current {
     padding: 6px;
@@ -1904,40 +1879,67 @@ html[dir="rtl"] .lang-switcher-dropdown {
 @media (max-width: 768px) {
   /* RTL Mobile Toggle (hamburger) - positioned on RIGHT */
   /* Using multiple parent selectors for higher specificity */
-  html[dir="rtl"] .navbar .mobile-toggle,
+  .navbar .mobile-toggle,
   html[dir="rtl"] nav .mobile-toggle,
   html[dir="rtl"] header .mobile-toggle,
   html[dir="rtl"] .nav-container .mobile-toggle,
-  html[dir="rtl"] .mobile-toggle {
-    left: auto !important;
-    right: 15px !important;
-  }
+  html[dir="rtl"] .mobile-toggle{left: auto !important;right: 15px !important;}
   
   /* RTL Phone Button - positioned on LEFT */
-  html[dir="rtl"] .navbar .phone-header-btn,
+  .navbar .phone-header-btn,
   html[dir="rtl"] nav .phone-header-btn,
   html[dir="rtl"] header .phone-header-btn,
   html[dir="rtl"] .nav-container .phone-header-btn,
-  html[dir="rtl"] .phone-header-btn {
-    left: 15px !important;
-    right: auto !important;
-  }
+  html[dir="rtl"] .phone-header-btn{left: 15px !important;right: auto !important;}
   
   /* RTL Mobile Menu - slides from RIGHT */
-  html[dir="rtl"] .navbar .nav-menu,
+  .navbar .nav-menu,
   html[dir="rtl"] nav .nav-menu,
   html[dir="rtl"] header .nav-menu,
   html[dir="rtl"] .nav-container .nav-menu,
-  html[dir="rtl"] .nav-menu {
-    left: auto !important;
-    right: 0 !important;
-  }
+  html[dir="rtl"] .nav-menu{left: auto !important;right: 0 !important;}
   
   /* RTL Mobile Menu Links - text align right */
-  html[dir="rtl"] .nav-menu a,
-  html[dir="rtl"] .nav-menu li {
-    text-align: right !important;
-  }
+  .nav-menu a,
+  html[dir="rtl"] .nav-menu li{text-align: right !important;}
 }
 
 /* ========== END RTL MOBILE NAVBAR FIX ========== */
+
+
+/* ========== GRID MOBILE RESPONSIVE FIX (zappy-grid-mobile-fix) ========== */
+/* Ensures AI-generated grids with fixed pixel widths are responsive on mobile */
+
+@media (max-width: 768px) {
+  /* Auto-grid (AI-generated) grids - force single column on mobile */
+  .zappy-preserve-css-grid[data-zappy-auto-grid="true"],
+  [data-zappy-auto-grid="true"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Media-only grid items - constrain height on mobile */
+  .zappy-preserve-css-grid[data-zappy-auto-grid="true"] > .zappy-grid-item-media-only,
+  [data-zappy-auto-grid="true"] > .zappy-grid-item-media-only {
+    height: auto !important;
+    max-height: 300px !important;
+  }
+  
+  .zappy-preserve-css-grid[data-zappy-auto-grid="true"] > .zappy-grid-item-media-only img,
+  [data-zappy-auto-grid="true"] > .zappy-grid-item-media-only img {
+    height: auto !important;
+    max-height: 300px !important;
+  }
+  
+  /* Explicit column grids - force single column on mobile */
+  [data-zappy-explicit-columns="true"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Inline grid with fixed pixel columns - make responsive */
+  .zappy-inline-grid-active.zappy-preserve-css-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ========== END GRID MOBILE RESPONSIVE FIX ========== */
